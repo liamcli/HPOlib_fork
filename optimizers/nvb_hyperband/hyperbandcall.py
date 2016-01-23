@@ -121,14 +121,14 @@ def main():
         # [:, np.newaxis] that does not.
             y = np.reshape(y, (-1, 1))
         n_obs = y.shape[0]
-        min_train_size = min(int(0.1*n_obs),2000)
+        min_train_size = min(int(1./12.*n_obs),2000)
         #what to do if not all classes appear in training data
         #y_train=y[0:min_train_size]
         #while len(np.unique(y_train))<len(np.unique(y)):
             #min_train_size = min_train_size + int(0.1 * n_obs)
             #y_train=y[0:min_train_size]
 
-        max_train_size=int(0.8*n_obs)
+        max_train_size=int(2./3.*n_obs)
         k = 0
         seed_and_arms = args.seed
         while True:
@@ -144,9 +144,8 @@ def main():
                 while num_pulls>=min_train_size:
                     if num_arms>2:
                         print "Starting num_pulls=%d, num_arms=%d" %(num_pulls,num_arms)
-
+                        best_config = run_nvb(num_arms,num_pulls,fn,search_space,seed_and_arms,state_filename)
                         if num_pulls<max_train_size:
-                            best_config = run_nvb(num_arms,num_pulls,fn,search_space,seed_and_arms,state_filename)
                             # run best_config on full sample size
                             fn(best_config)
                             seed_and_arms = seed_and_arms + num_arms

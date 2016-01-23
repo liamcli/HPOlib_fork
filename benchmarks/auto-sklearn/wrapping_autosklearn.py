@@ -201,7 +201,7 @@ def main(params, tid, openml_data_dir, split_seed,do_cv,**kwargs):
     #X_test = X[1000:]
     #y_test = y[1000:]
     n_obs = y.shape[0]
-    np.random.seed(split_seed)
+    np.random.seed(1)
     shuffle_ind = np.random.permutation(n_obs)
     X=X[shuffle_ind]
     y=y[shuffle_ind]
@@ -224,18 +224,18 @@ def main(params, tid, openml_data_dir, split_seed,do_cv,**kwargs):
     if y.shape[1] == 1:
         y = y.flatten()
     #Do 10% val and 10% test
-    val_index = int(0.8*n_obs)
-    test_index = int(0.9*n_obs)
+    val_index = int(2./3.*n_obs)
+    test_index = int(5./6.*n_obs)
     if params.has_key('train_size'):
         print "Dataset size: " + str(n_obs) + ", Training size: " + str(params['train_size'])
         if int(params['train_size']) < val_index:
             compute_test_error=False
-        X_train, Y_train = sample_data(X[0:val_index],y[0:val_index],int(params['train_size']),task)
-        while len(np.unique(Y_train))<len(np.unique(y)):
-            shuffle_ind = np.random.permutation(n_obs)
-            X=X[shuffle_ind]
-            y=y[shuffle_ind]
-            X_train, Y_train = sample_data(X[0:val_index],y[0:val_index],int(params['train_size']),task,split_seed)
+            X_train, Y_train = sample_data(X[0:val_index],y[0:val_index],int(params['train_size']),task)
+            while len(np.unique(Y_train))<len(np.unique(y)):
+                shuffle_ind = np.random.permutation(n_obs)
+                X=X[shuffle_ind]
+                y=y[shuffle_ind]
+                X_train, Y_train = sample_data(X[0:val_index],y[0:val_index],int(params['train_size']),task,split_seed)
         params.pop('train_size')
     else:
         X_train=X[0:val_index]
@@ -328,7 +328,7 @@ if __name__ == "__main__":
     openml_data_dir = config.get("EXPERIMENT", "openml_data_dir")
     tid = np.int(config.get("EXPERIMENT", "openml_tid"))
     split_seed = np.int(config.get("EXPERIMENT", "data_split_seed"))
-    val_error, test_error, train_size = main(params, tid, openml_data_dir,split_seed,True,**args)
+    val_error, test_error, train_size = main(params, tid, openml_data_dir,split_seed,False,**args)
     duration = time.time() - starttime
     print "Result for ParamILS: %s, %f, 1, %f, %d, %s, %f, %s, %d" % \
         ("SAT", abs(duration), val_error, -1, "test_error", test_error, "train_size", train_size)

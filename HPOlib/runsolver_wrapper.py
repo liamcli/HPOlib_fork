@@ -222,7 +222,7 @@ def get_parameters():
     return params
 
 
-def parse_output_files(cfg, run_instance_output, runsolver_output_file):
+def parse_output_files(cfg, run_instance_output, runsolver_output_file,additional_data=None):
     cpu_time, measured_wallclock_time, error = read_runsolver_output(
         runsolver_output_file)
     result_array, result_string = read_run_instance_output(run_instance_output)
@@ -266,8 +266,14 @@ def parse_output_files(cfg, run_instance_output, runsolver_output_file):
         if cfg.getboolean("HPOLIB", "remove_target_algorithm_output"):
             os.remove(run_instance_output)
         os.remove(runsolver_output_file)
+        logger.info(result_array[8])
+        if result_array[8]=='test_error':
+            additional_data={}
+            additional_data['test_error'] = result_array[9]
+            if result_array[10]=='train_size':
+                additional_data['train_size'] = result_array[11]
         rval = (cpu_time, wallclock_time, "SAT", float(result_array[6].strip(",")),
-                cfg.get("HPOLIB", "function"))
+                None if additional_data is None else additional_data)
 
     else:
         rval = (cpu_time, wallclock_time, "CRASHED", cfg.getfloat("HPOLIB",
@@ -283,7 +289,7 @@ def parse_output_files(cfg, run_instance_output, runsolver_output_file):
 def format_return_string(status, runtime, runlength, quality, seed,
                          additional_data):
     return_string = "Result for ParamILS: %s, %f, %d, %f, %d, %s" % \
-                    (status, runtime, runlength, quality, seed, additional_data)
+                    (status, runtime, runlength, quality, seed, str(additional_data))
     return return_string
 
 
@@ -345,7 +351,7 @@ def main():
     experiment = load_experiment_file()
     if status == "SAT":
         experiment.set_one_fold_complete(trial_index, fold, result,
-                                         wallclock_time)
+                                         wallclock_time,additional_data)
     elif status == "CRASHED" or status == "UNSAT":
         result = cfg.getfloat("HPOLIB", "result_on_terminate")
         experiment.set_one_fold_crashed(trial_index, fold, result,

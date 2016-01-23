@@ -23,11 +23,14 @@ import cPickle
 from functools import partial
 from importlib import import_module
 import logging
+import traceback
 import os
 import sys
-
+from HPOlib.benchmark_util import get_openml_dataset
 import optimizers.tpe.hyperopt_august2013_mod_src.hyperopt as hyperopt
 import HPOlib.cv as cv
+import numpy as np
+from run_nvb import run_nvb
 
 logger = logging.getLogger("HPOlib.optimizers.tpe.tpecall")
 
@@ -78,7 +81,8 @@ def main():
                         dest="random", help="Use a random search")
     parser.add_argument("--cwd", help="Change the working directory before "
                                       "optimizing.")
-
+    parser.add_argument("--tid", type=int, help="Which open_ml task id to use.")
+    parser.add_argument("--datadir", help="Where to save the open ml data.")
     args, unknown = parser.parse_known_args()
 
     if args.cwd:
@@ -87,7 +91,6 @@ def main():
     if not os.path.exists(args.spaceFile):
         logger.critical("Search space not found: %s" % args.spaceFile)
         sys.exit(1)
-
     # First remove ".py"
     space, ext = os.path.splitext(os.path.basename(args.spaceFile))
 
@@ -98,14 +101,7 @@ def main():
     module = import_module(space)
     search_space = module.space
     fn = cv.main  # doForTPE
-    
-    if args.random:
-        # We use a random search
-        tpe_with_seed = partial(hyperopt.tpe.rand.suggest, seed=int(args.seed))
-        logger.info("Using Random Search")
-    else:
-        tpe_with_seed = partial(hyperopt.tpe.suggest, seed=int(args.seed))
-    
+
     # Now run TPE, emulate fmin.fmin()
     state_filename = "state.pkl"
     if args.restore:
@@ -118,23 +114,46 @@ def main():
         trials = tmp_dict['trials']
         print trials.__dict__
     else:
-        domain = hyperopt.Domain(fn, search_space, rseed=int(args.seed))
-        trials = hyperopt.Trials()
-        fh = open(state_filename, "w")
-        # By this we probably loose the seed; not too critical for a restart
-        cPickle.dump({"trials": trials, "domain": domain}, fh)
-        fh.close()
-    
-    for i in range(int(args.maxEvals) + 1):
-        # in exhaust, the number of evaluations is max_evals - num_done
-        rval = hyperopt.FMinIter(tpe_with_seed, domain, trials, max_evals=i)
-        rval.exhaust()
-        fh = open(state_filename, "w")
-        cPickle.dump({"trials": trials, "domain": domain}, fh)
-        fh.close()
+        X,y = get_openml_dataset(args.tid, args.datadir)
+        y = np.atleast_1d(y)
+        if y.ndim == 1:
+        # reshape is necessary to preserve the data contiguity against vs
+        # [:, np.newaxis] that does not.
+            y = np.reshape(y, (-1, 1))
+        n_obs = y.shape[0]
+        min_train_size = min(int(0.1*n_obs),2000)
+        #what to do if not all classes appear in training data
+        #y_train=y[0:min_train_size]
+        #while len(np.unique(y_train))<len(np.unique(y)):
+            #min_train_size = min_train_size + int(0.1 * n_obs)
+            #y_train=y[0:min_train_size]
 
-    best = trials.argmin
-    print "Best Value found for params:", best
+        max_train_size=int(0.8*n_obs)
+        k = 0
+        seed_and_arms = args.seed
+        while True:
+            B = int((2**k)*max_train_size)
+            k+=1
+            print "\nBudget B = %d" % B
+            print "\nmin_train_size: " + str(min_train_size) + ", max_train_size: " + str(max_train_size)
+            print '###################'
+            try:
+                num_pulls = int(max_train_size)
+                num_arms = int(B/num_pulls)
+
+                while num_pulls>=min_train_size:
+                    if num_arms>2:
+                        print "Starting num_pulls=%d, num_arms=%d" %(num_pulls,num_arms)
+
+                        if num_pulls<max_train_size:
+                            best_config = run_nvb(num_arms,num_pulls,fn,search_space,seed_and_arms,state_filename)
+                            # run best_config on full sample size
+                            fn(best_config)
+                            seed_and_arms = seed_and_arms + num_arms
+                    num_pulls = int(num_pulls/2)
+                    num_arms = int(B/num_pulls)
+            except Exception as e:
+                print(traceback.format_exc())
 
 if __name__ == "__main__":
     main()

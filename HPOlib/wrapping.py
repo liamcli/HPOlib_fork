@@ -48,6 +48,8 @@ logger = logging.getLogger("HPOlib.wrapping")
 
 def get_all_p_for_pgid():
     current_pgid = os.getpgid(os.getpid())
+    if current_pgid==os.getpid():
+        return [current_pgid]
     running_pid = []
     for pid in psutil.process_iter():
         try:
@@ -70,7 +72,7 @@ def kill_children(sig):
     logger.critical("Running %s" % str(running_pid))
     for pid in running_pid:
         try:
-            os.kill(pid, sig)
+            os.kill(-pid, sig)
         except Exception as e:
             logger.error(type(e))
             logger.error(e)
@@ -483,14 +485,14 @@ def main():
                 sent_SIGINT = True
 
             if exit_.get_exit() == True and not sent_SIGTERM and time.time() \
-                    > sent_SIGINT_time + 100:
+                    > sent_SIGINT_time + 10:
                 logger.info("Sending SIGTERM")
                 kill_children(signal.SIGTERM)
                 sent_SIGTERM_time = time.time()
                 sent_SIGTERM = True
 
             if exit_.get_exit() == True and not sent_SIGKILL and time.time() \
-                    > sent_SIGTERM_time + 100:
+                    > sent_SIGTERM_time + 10:
                 logger.info("Sending SIGKILL")
                 kill_children(signal.SIGKILL)
                 sent_SIGKILL_time = time.time()

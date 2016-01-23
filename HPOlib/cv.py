@@ -202,7 +202,8 @@ def main(*args, **kwargs):
                         "args: %s\n kwargs: %s", args, kwargs)
         # TODO: Hack for TPE and AUTOWeka
         params = args
-
+    if 'train_size' in kwargs.keys():
+        params['train_size'] = kwargs['train_size']
     # Load the experiment to do time-keeping
     cv_starttime = time.time()
     experiment = load_experiment_file()

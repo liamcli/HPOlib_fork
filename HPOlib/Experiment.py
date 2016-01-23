@@ -109,8 +109,11 @@ class Experiment:
         # Stores the validation error
         trial['result'] = np.NaN
         trial['test_error'] = np.NaN
+        trial['train_size'] = np.NaN
         # Validation error for every instance
         trial['instance_results'] = np.ones((self.folds)) * np.NaN
+        trial['instance_test_error'] = np.ones((self.folds)) * np.NaN
+        trial['instance_train_size'] = np.ones((self.folds)) * np.NaN
         # Status for every instance
         trial['instance_status'] = np.zeros((self.folds), dtype=int)
         # Contains the standard deviation in case of cross validation
@@ -234,17 +237,21 @@ class Experiment:
         self._save_jobs()
 
     # Set the results of one fold of crossvalidation (SMAC)
-    def set_one_fold_complete(self, _id, fold, result, duration):
+    def set_one_fold_complete(self, _id, fold, result, duration,additional_info=None):
         assert(self.get_trial_from_id(_id)['instance_status'][fold] ==
                RUNNING_STATE)
         self.get_trial_from_id(_id)['instance_results'][fold] = result
         self.get_trial_from_id(_id)['instance_status'][fold] = COMPLETE_STATE
         self.get_trial_from_id(_id)['instance_durations'][fold] = duration
+        if additional_info is not None:
+            for key in additional_info:
+                new_key="instance_"+key
+                self.get_trial_from_id(_id)[new_key][fold]=float(additional_info[key])
         # Set to incomplete if no job is running
         if (self.trials[_id]['instance_status'] != RUNNING_STATE).all():
             self.trials[_id]['status'] = INCOMPLETE_STATE
         # Check if all runs are finished
-        self.check_cv_finished(_id)
+        self.check_cv_finished(_id,additional_info)
         self.total_wallclock_time += duration
         self._sanity_check()
         self._save_jobs()
@@ -260,7 +267,7 @@ class Experiment:
         self._save_jobs()
     
     # Check if one set of cross validations is finished
-    def check_cv_finished(self, _id):
+    def check_cv_finished(self, _id,additional_info=None):
         if np.isfinite(self.get_trial_from_id(_id)["instance_results"]).all():
             if np.sum(self.get_trial_from_id(_id)['instance_status'] == -1) == self.folds:
                 self.get_trial_from_id(_id)['status'] = BROKEN_STATE
@@ -269,6 +276,12 @@ class Experiment:
             self.get_trial_from_id(_id)['result'] = \
                 np.sum(self.get_trial_from_id(_id)['instance_results'])\
                 / self.folds
+            # TODO: make additional_info more flexible and not just averages
+            if additional_info is not None:
+                for key in additional_info:
+                    self.get_trial_from_id(_id)[key] = \
+                        np.sum(self.get_trial_from_id(_id)['instance_'+key]) \
+                        / self.folds
             self.get_trial_from_id(_id)['std'] =\
                 np.std(self.get_trial_from_id(_id)['instance_results'])
             self.get_trial_from_id(_id)['duration'] =\
@@ -280,6 +293,7 @@ class Experiment:
     # Deletes all instance runs except the first ones which are specified by the
     # parameters. Useful to delete all unnecessary entries after a crash in order
     # to restart
+    # Restore not compatible with nvb_hyperband optimizer
     def remove_all_but_first_runs(self, restored_runs):
         logger.info("Restored runs %d", restored_runs)
         logger.info("%s %s" ,self.instance_order, len(self.instance_order))

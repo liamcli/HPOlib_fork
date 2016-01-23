@@ -18,10 +18,43 @@
 
 import logging
 import sys
-
+import os
+import pyMetaLearn.openml.manage_openml_data
+from pyMetaLearn.openml.openml_task import OpenMLTask
+from collections import defaultdict
 
 logger = logging.getLogger("HPOlib.benchmark_util")
 
+
+def get_openml_dataset(tid,local_directory):
+    #"/home/lisha/school/Data/openml/"
+    pyMetaLearn.openml.manage_openml_data.set_local_directory(local_directory)
+    task = pyMetaLearn.openml.manage_openml_data.download_task(tid)
+    pyMetaLearn.openml.manage_openml_data.download(int(task.dataset_id))
+    did_to_targets = defaultdict(set)
+    did_to_targets[int(task.dataset_id)].add(task.target_feature)
+    task_properties = {"task_id": tid,
+                       "task_type": "Supervised Classification",
+                       "data_set_id": int(task.dataset_id),
+                       "target_feature": did_to_targets[int(task.dataset_id)].pop(),
+                       "estimation_procudure_type": "crossvalidation with crossvalidation holdout",
+                       "data_splits_url": None,
+                       "estimation_parameters": {"stratified_sampling": "true", "test_folds": 3,
+                                                 "test_fold": 0},
+                       "evaluation_measure": "predictive_accuracy",
+                       "local_test_split_file": None,
+                       "local_validation_split_file": None}
+
+    custom_tasks_dir = os.path.join(local_directory, "custom_tasks")
+    task_file = os.path.join(custom_tasks_dir, "did_%d.pkl" %
+        task_properties["task_id"])
+
+    #cPickle.dump(task_properties, open(task_file, "wb"))
+    task_args = task_properties
+
+    task = OpenMLTask(**task_args)
+    X, Y = task.get_dataset()
+    return X, Y
 
 def parse_cli():
     """

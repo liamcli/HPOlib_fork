@@ -236,6 +236,9 @@ def main(params, tid, openml_data_dir, split_seed,do_cv,**kwargs):
                 X=X[shuffle_ind]
                 y=y[shuffle_ind]
                 X_train, Y_train = sample_data(X[0:val_index],y[0:val_index],int(params['train_size']),task,split_seed)
+        else:
+            X_train=X[0:val_index]
+            Y_train=y[0:val_index]
         params.pop('train_size')
     else:
         X_train=X[0:val_index]

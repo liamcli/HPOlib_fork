@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: HPOlib
+Version: 0.1.0
+Summary: A software that can be used to evaluate either black boxes or hyperparameter optimization algorithms
+Home-page: https://github.com/automl/HPOlib
+Author: ['Katharina Eggensperger', 'Matthias Feurer']
+Author-email: eggenspk@informatik.uni-freiburg.de
+License: LGPLv3
+Description: HPOlib: A hyperparameter optimization library.
+        ===============================================================
+        
+        This software provides a common interface to the three hyperparameter
+        optimization packages hyperopt(TPE), SMAC and spearmint. For further information,
+        please visit the accompanying website http://www.automl.org/hpolib. The installation
+        manual is in the file [INSTALL.md](INSTALL.md)
+        
+        This software is licensed under the GPL license. You find the license text
+        shipped with this package.
+        
+        
+        Status for master branch:
+        
+        [![Build Status](https://travis-ci.org/automl/HPOlib.svg?branch=master)](https://travis-ci.org/automl/HPOlib)
+        [![Code Health](https://landscape.io/github/automl/HPOlib/master/landscape.png)](https://landscape.io/github/automl/HPOlib/master)
+        
+        Status for development branch
+        
+        [![Build Status](https://travis-ci.org/automl/HPOlib.svg?branch=development)](https://travis-ci.org/automl/HPOlib)
+        [![Code Health](https://landscape.io/github/automl/HPOlib/development/landscape.png)](https://landscape.io/github/automl/HPOlib/development)
+        
+        Issue tracking
+        
+        [![Issue Tracking](https://badge.waffle.io/automl/HPOlib.png?label=ready&title=Ready)](https://waffle.io/automl/HPOlib)
+        
+        
+Keywords: hyperparameter optimization empirical evaluation black box
+Platform: Linux
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development

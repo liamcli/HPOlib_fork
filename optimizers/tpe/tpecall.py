@@ -25,7 +25,7 @@ from importlib import import_module
 import logging
 import os
 import sys
-
+import hyperopt_with_init
 import optimizers.tpe.hyperopt_august2013_mod_src.hyperopt as hyperopt
 import HPOlib.cv as cv
 
@@ -104,7 +104,7 @@ def main():
         tpe_with_seed = partial(hyperopt.tpe.rand.suggest, seed=int(args.seed))
         logger.info("Using Random Search")
     else:
-        tpe_with_seed = partial(hyperopt.tpe.suggest, seed=int(args.seed))
+        tpe_with_seed = partial(hyperopt_with_init.suggest, seed=int(args.seed))
     
     # Now run TPE, emulate fmin.fmin()
     state_filename = "state.pkl"

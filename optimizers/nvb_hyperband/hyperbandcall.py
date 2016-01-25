@@ -20,7 +20,6 @@
 from argparse import ArgumentParser
 
 import cPickle
-from functools import partial
 from importlib import import_module
 import logging
 import traceback

@@ -76,12 +76,14 @@ def main():
     parser.add_argument("-r", "--restore", action="store_true",
                         dest="restore", help="When this flag is set state.pkl is restored in " +
                              "the current working directory")
+    parser.add_argument("-fixB",type=int, help="Fix budget each round")
     parser.add_argument("--random", default=False, action="store_true",
                         dest="random", help="Use a random search")
     parser.add_argument("--cwd", help="Change the working directory before "
                                       "optimizing.")
     parser.add_argument("--tid", type=int, help="Which open_ml task id to use.")
     parser.add_argument("--datadir", help="Where to save the open ml data.")
+
     args, unknown = parser.parse_known_args()
 
     if args.cwd:
@@ -131,7 +133,10 @@ def main():
         k = 0
         seed_and_arms = args.seed
         while True:
-            B = int((2**k)*max_train_size)
+            if args.fixB:
+                B=4*max_train_size
+            else:
+                B = int((2**k)*max_train_size)
             k+=1
             print "\nBudget B = %d" % B
             print "\nmin_train_size: " + str(min_train_size) + ", max_train_size: " + str(max_train_size)

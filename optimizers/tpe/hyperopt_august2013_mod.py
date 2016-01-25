@@ -72,6 +72,7 @@ def build_tpe_call(config, options, optimizer_dir):
     call = ' '.join([call, '-p', os.path.join(optimizer_dir, os.path.basename(config.get('TPE', 'space'))),
                      "-m", config.get('TPE', 'number_evals'),
                      "-s", str(options.seed),
+                     "-init", config.get('TPE','init'),
                      "--cwd", optimizer_dir])
     if options.restore:
         call = ' '.join([call, '-r'])

@@ -20,14 +20,16 @@
 from argparse import ArgumentParser
 
 import cPickle
-from functools import partial
 from importlib import import_module
 import logging
+import traceback
 import os
 import sys
-import hyperopt_with_init
+from HPOlib.benchmark_util import get_openml_dataset
 import optimizers.tpe.hyperopt_august2013_mod_src.hyperopt as hyperopt
 import HPOlib.cv as cv
+import numpy as np
+from run_hyperbandSHA import run_hyperbandSHA
 
 logger = logging.getLogger("HPOlib.optimizers.tpe.tpecall")
 
@@ -74,11 +76,13 @@ def main():
     parser.add_argument("-r", "--restore", action="store_true",
                         dest="restore", help="When this flag is set state.pkl is restored in " +
                              "the current working directory")
-    parser.add_argument("-init",type=int,help="Start Hyperopt with initial point")
+    parser.add_argument("-fixB",type=int, help="Fix budget each round")
     parser.add_argument("--random", default=False, action="store_true",
                         dest="random", help="Use a random search")
     parser.add_argument("--cwd", help="Change the working directory before "
                                       "optimizing.")
+    parser.add_argument("--tid", type=int, help="Which open_ml task id to use.")
+    parser.add_argument("--datadir", help="Where to save the open ml data.")
 
     args, unknown = parser.parse_known_args()
 
@@ -88,7 +92,6 @@ def main():
     if not os.path.exists(args.spaceFile):
         logger.critical("Search space not found: %s" % args.spaceFile)
         sys.exit(1)
-
     # First remove ".py"
     space, ext = os.path.splitext(os.path.basename(args.spaceFile))
 
@@ -99,17 +102,7 @@ def main():
     module = import_module(space)
     search_space = module.space
     fn = cv.main  # doForTPE
-    
-    if args.random:
-        # We use a random search
-        tpe_with_seed = partial(hyperopt.tpe.rand.suggest, seed=int(args.seed))
-        logger.info("Using Random Search")
-    else:
-        if args.init:
-            tpe_with_seed = partial(hyperopt_with_init.suggest, seed=int(args.seed))
-        else:
-            tpe_with_seed = partial(hyperopt.tpe.suggest, seed=int(args.seed))
-    
+
     # Now run TPE, emulate fmin.fmin()
     state_filename = "state.pkl"
     if args.restore:
@@ -122,23 +115,67 @@ def main():
         trials = tmp_dict['trials']
         print trials.__dict__
     else:
-        domain = hyperopt.Domain(fn, search_space, rseed=int(args.seed))
-        trials = hyperopt.Trials()
-        fh = open(state_filename, "w")
-        # By this we probably loose the seed; not too critical for a restart
-        cPickle.dump({"trials": trials, "domain": domain}, fh)
-        fh.close()
-    
-    for i in range(int(args.maxEvals) + 1):
-        # in exhaust, the number of evaluations is max_evals - num_done
-        rval = hyperopt.FMinIter(tpe_with_seed, domain, trials, max_evals=i)
-        rval.exhaust()
-        fh = open(state_filename, "w")
-        cPickle.dump({"trials": trials, "domain": domain}, fh)
-        fh.close()
+        X,y = get_openml_dataset(args.tid, args.datadir)
+        y = np.atleast_1d(y)
+        if y.ndim == 1:
+        # reshape is necessary to preserve the data contiguity against vs
+        # [:, np.newaxis] that does not.
+            y = np.reshape(y, (-1, 1))
+        n_obs = y.shape[0]
+        min_train_size = max(min(int(2./27.*n_obs),1000),20)
+        #what to do if not all classes appear in training data
+        #y_train=y[0:min_train_size]
+        #while len(np.unique(y_train))<len(np.unique(y)):
+            #min_train_size = min_train_size + int(0.1 * n_obs)
+            #y_train=y[0:min_train_size]
 
-    best = trials.argmin
-    print "Best Value found for params:", best
+        max_train_size=int(2./3.*n_obs)
+        k = 0
+        seed_and_arms = args.seed
+        module = import_module(space)
+        search_space = module.space
+        fn = cv.main  # doForTPE
+
+        # Now run TPE, emulate fmin.fmin()
+        state_filename = "state.pkl"
+        while True:
+            B = int((2**k)*max_train_size)
+            k+=1
+            print "\nBudget B = %d" % B
+            print '###################'
+
+
+            eta = 3.
+            def logeta(x):
+                return np.log(x)/np.log(eta)
+
+            # s_max defines the number of inner loops per unique value of B
+            # it also specifies the maximum number of rounds
+            R = float(max_train_size)
+            r = float(min_train_size)
+            ell_max = int(min(B/R-1,int(logeta(R/r))))
+            ell = ell_max
+            try:
+                while ell >= 0:
+
+                    # specify the number of arms and the number of times each arm is pulled per stage within this innerloop
+                    n = int( B/R*eta**ell/(ell+1.) )
+
+                    if n> 0:
+                        s = 0
+                        while (n)*R*(s+1.)*eta**(-s)>=B:
+                            s+=1
+                        s-=1
+
+                        print
+                        print 's=%d, n=%d' %(s,n)
+                        print 'n_i\tr_k'
+
+                        run_hyperbandSHA(n,s,eta,R,fn,search_space,seed_and_arms)
+                        seed_and_arms=seed_and_arms+n
+                    ell-=1
+            except Exception as e:
+                print(traceback.format_exc())
 
 if __name__ == "__main__":
     main()

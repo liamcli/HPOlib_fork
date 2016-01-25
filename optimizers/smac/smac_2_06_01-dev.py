@@ -102,6 +102,7 @@ def build_smac_call(config, options, optimizer_dir):
                     '--numConcurrentAlgoExecs', config.get('SMAC', 'num_concurrent_algo_execs'),
                     # '--runGroupName', config.get('SMAC', 'runGroupName'),
                     '--maxIncumbentRuns', config.get('SMAC', 'max_incumbent_runs'),
+                    '--initial-incumbent', config.get('SMAC', 'initialize'),
                     '--retryTargetAlgorithmRunCount',
                     config.get('SMAC', 'retry_target_algorithm_run_count'),
                     '--save-runs-every-iteration false',

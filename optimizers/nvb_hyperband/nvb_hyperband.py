@@ -45,14 +45,19 @@ def check_dependencies():
 
 
 
-def build_hyperband_call(config, options, optimizer_dir):
+def build_hyperband_call(config, options, optimizer_dir,adaptive):
+    if adaptive:
+        call_script='hyperbandSHA_call.py'
+    else:
+        call_script='hyperbandcall.py'
     call = "python " + os.path.dirname(os.path.realpath(__file__)) + \
-           "/hyperbandcall.py"
+           "/"+call_script
     openml_data_dir = config.get("EXPERIMENT", "openml_data_dir")
     tid = int(config.get("EXPERIMENT", "openml_tid"))
     call = ' '.join([call, '-p', os.path.join(optimizer_dir, os.path.basename(config.get('HYPERBAND', 'space'))),
                      "-m", config.get('HYPERBAND', 'number_evals'),
                      "-s", str(options.seed),
+                     "-fixB", config.get('HYPERBAND','fixB'),
                      "--cwd", optimizer_dir,
                      "--tid",str(tid),
                      "--datadir",openml_data_dir])
@@ -84,7 +89,8 @@ def main(config, options, experiment_dir, experiment_directory_prefix, **kwargs)
                                  time_string)
 
     # Build call
-    cmd = build_hyperband_call(config, options, optimizer_dir)
+    adaptive=int(config.get('HYPERBAND','adaptive'))
+    cmd = build_hyperband_call(config, options, optimizer_dir,adaptive)
 
     # Set up experiment directory
     if not os.path.exists(optimizer_dir):

@@ -122,6 +122,7 @@ def main():
         # [:, np.newaxis] that does not.
             y = np.reshape(y, (-1, 1))
         n_obs = y.shape[0]
+        #should change to match SHA
         min_train_size = min(int(1./12.*n_obs),2000)
         #what to do if not all classes appear in training data
         #y_train=y[0:min_train_size]
@@ -148,11 +149,11 @@ def main():
                 while num_pulls>=min_train_size:
                     if num_arms>2:
                         print "Starting num_pulls=%d, num_arms=%d" %(num_pulls,num_arms)
+                        best_config = run_nvb(num_arms,num_pulls,fn,search_space,seed_and_arms,state_filename)
                         if num_pulls<max_train_size:
-                            best_config = run_nvb(num_arms,num_pulls,fn,search_space,seed_and_arms,state_filename)
                             # run best_config on full sample size
                             fn(best_config)
-                            seed_and_arms = seed_and_arms + num_arms
+                        seed_and_arms = seed_and_arms + num_arms
                     num_pulls = int(num_pulls/2)
                     num_arms = int(B/num_pulls)
             except Exception as e:

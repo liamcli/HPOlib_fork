@@ -44,11 +44,11 @@ def build_net(arm, split=0):
 
     n = caffe.NetSpec()
     if split==1:
-        n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/cifar10_train_lmdb",
+        n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/cifar10_eventrain_lmdb",
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
         #transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),
     elif split==2:
-        n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/cifar10_val_lmdb",
+        n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/cifar10_evenval_lmdb",
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
     elif split==3:
         n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/cifar10_test_lmdb",
@@ -88,7 +88,7 @@ def build_solver(arm):
     s.train_net = arm['train_net_file']
     s.test_net.append(arm['val_net_file'])
     s.test_net.append(arm['test_net_file'])
-    s.test_interval = 1000  # Test after every 1000 training iterations.
+    s.test_interval = 60000  # Test after every 1000 training iterations.
     s.test_iter.append(int(10000/arm['batch_size'])) # Test on 100 batches each time we test.
     s.test_iter.append(int(10000/arm['batch_size'])) # Test on 100 batches each time we test.
 
@@ -197,6 +197,8 @@ def run_solver(unit, n_units, arm, disp_interval=100):
         prefix=arm['dir']+"/cifar10_data_iter_"
         s.restore(prefix+str(arm['n_iter'])+".solverstate")
         s.net.copy_from(prefix+str(arm['n_iter'])+".caffemodel")
+        s.test_nets[0].share_with(s.net)
+        s.test_nets[1].share_with(s.net)
     start=time.time()
     if unit=='time':
         while time.time()-start<n_units:
@@ -209,10 +211,16 @@ def run_solver(unit, n_units, arm, disp_interval=100):
         arm['n_iter']+=n_units
     s.snapshot()
     train_loss = s.net.blobs['loss'].data
-    s.test_nets[0].forward()
-    val_acc = s.test_nets[0].blobs['acc'].data
-    s.test_nets[1].forward()
-    test_acc = s.test_nets[1].blobs['acc'].data
+    val_acc=0
+    test_acc=0
+    n_iter = 100
+    for i in range(n_iter):
+        s.test_nets[0].forward()
+        val_acc += s.test_nets[0].blobs['acc'].data
+        s.test_nets[1].forward()
+        test_acc += s.test_nets[1].blobs['acc'].data
+    val_acc=val_acc/n_iter
+    test_acc=test_acc/n_iter
     return train_loss,val_acc, test_acc
 
 def main(params, dir):

@@ -123,7 +123,7 @@ def main():
             y = np.reshape(y, (-1, 1))
         n_obs = y.shape[0]
         #should change to match SHA
-        min_train_size = min(int(1./12.*n_obs),2000)
+        min_train_size = min(int(1./12.*n_obs),1000)
         #what to do if not all classes appear in training data
         #y_train=y[0:min_train_size]
         #while len(np.unique(y_train))<len(np.unique(y)):

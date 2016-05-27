@@ -2,27 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a0e4638-3812-4c89-b00a-85c5910319b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/archive/config.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/experiment_loop.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_rerun.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_rerun_delete_files.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod/config.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/random_hyperopt_august2013_mod/config.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/to_fix.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperband.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod/logistic_hyperopt.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/random_hyperopt_august2013_mod/logistic_hyperopt.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/theano_teardown.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/wrappingLogistic.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HPOlib/Experiment.py" afterPath="$PROJECT_DIR$/HPOlib/Experiment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HPOlib/benchmark_util.py" afterPath="$PROJECT_DIR$/HPOlib/benchmark_util.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HPOlib/cv.py" afterPath="$PROJECT_DIR$/HPOlib/cv.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HPOlib/runsolver_wrapper.py" afterPath="$PROJECT_DIR$/HPOlib/runsolver_wrapper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HPOlib/wrapping.py" afterPath="$PROJECT_DIR$/HPOlib/wrapping.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/pylearningcurvepredictor" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files1.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files2.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files3.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files_nvb.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files_parallel.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files_parallel2.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_out_files.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper2.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper3.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_new.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_new2.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_new3.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_new4.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_nvb.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_parallel.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_parallel2.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_parallel3.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_parallel4.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_parallel_excludeprec.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper_parallel_excludeprec2.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/reset_instance.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/hyperopt_august2013_mod/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/random_hyperopt_august2013_mod/space.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/run_hyperopt.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/run_smac.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/run_spearmint.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/cifar10_wrapper.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/config.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/hyperopt_august2013_mod/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/hyperopt_august2013_mod/space.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/random_hyperopt_august2013_mod/space.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/run_hyperopt.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/run_smac.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/run_spearmint.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/smac_2_06_01-dev/space.pcs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/mrbi/spearmint_april2013_mod/config.pb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/cifar10_wrapper.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/config.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/hyperopt_august2013_mod/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/hyperopt_august2013_mod/space.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/random_hyperopt_august2013_mod/space.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/run_hyperopt.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/run_smac.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/run_spearmint.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/smac_2_06_01-dev/space.pcs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/benchmarks/svhn/spearmint_april2013_mod/config.pb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-logreg" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-logreg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/HPOlib-0.1.0-py2.7.egg" afterPath="$PROJECT_DIR$/dist/HPOlib-0.1.0-py2.7.egg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/HPOlib.iml" afterPath="$PROJECT_DIR$/.idea/HPOlib.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpdbnet/bergstra_2011_helper.py" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpdbnet/bergstra_2011_helper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpdbnet/bergstra_2011_setup.py" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpdbnet/bergstra_2011_setup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpdbnet/bergstra_2011_teardown.py" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpdbnet/bergstra_2011_teardown.py" />
@@ -41,16 +73,23 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-logreg/hyperopt_august2013_mod/logistic_hyperopt.py" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-logreg/hyperopt_august2013_mod/logistic_hyperopt.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-logreg/nocv/config.cfg" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-logreg/nocv/config.cfg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/HPOlib-logreg/random_hyperopt_august2013_mod/logistic_hyperopt.py" afterPath="$PROJECT_DIR$/benchmarks/HPOlib-logreg/random_hyperopt_august2013_mod/logistic_hyperopt.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/cv/config.cfg" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/cv/config.cfg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/experiment_loop.sh" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/experiment_loop.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files.sh" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_grab_files.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper.sh" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/gcloud_wrapper.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod/config.py" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod/config.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/config.cfg" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/config.cfg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/smac_2_06_01-dev/space.pcs" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/smac_2_06_01-dev/space.pcs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/branin/hyperopt_august2013_mod/space.py" afterPath="$PROJECT_DIR$/benchmarks/branin/hyperopt_august2013_mod/space.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/camelback/hyperopt_august2013_mod/space.py" afterPath="$PROJECT_DIR$/benchmarks/camelback/hyperopt_august2013_mod/space.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/har6/hyperopt_august2013_mod/space.py" afterPath="$PROJECT_DIR$/benchmarks/har6/hyperopt_august2013_mod/space.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/lda_on_grid/hyperopt_august2013_mod/space.py" afterPath="$PROJECT_DIR$/benchmarks/lda_on_grid/hyperopt_august2013_mod/space.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/svm_on_grid/hyperopt_august2013_mod/space.py" afterPath="$PROJECT_DIR$/benchmarks/svm_on_grid/hyperopt_august2013_mod/space.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/optimizers/smac/smac_2_06_01-dev.py" afterPath="$PROJECT_DIR$/optimizers/smac/smac_2_06_01-dev.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/optimizers/tpe/tpecall.py" afterPath="$PROJECT_DIR$/optimizers/tpe/tpecall.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/task_types" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/task_types" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/auto-sklearn/task_types.csv" afterPath="$PROJECT_DIR$/benchmarks/auto-sklearn/task_types.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/caffe_cnn/cifar10_wrapper.py" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/cifar10_wrapper.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/caffe_cnn/config.cfg" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/config.cfg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/caffe_cnn/hyperopt_august2013_mod/space.py" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/hyperopt_august2013_mod/space.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/caffe_cnn/smac_2_06_01-dev/space.pcs" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/smac_2_06_01-dev/space.pcs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/caffe_cnn/spearmint_april2013_mod/config.pb" afterPath="$PROJECT_DIR$/benchmarks/caffe_cnn/spearmint_april2013_mod/config.pb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/HPOlib/Experiment.py" afterPath="$PROJECT_DIR$/build/lib/HPOlib/Experiment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/HPOlib/benchmark_util.py" afterPath="$PROJECT_DIR$/build/lib/HPOlib/benchmark_util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/HPOlib/runsolver_wrapper.py" afterPath="$PROJECT_DIR$/build/lib/HPOlib/runsolver_wrapper.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py" afterPath="$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py" />
     </list>
     <ignored path="HPOlib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,15 +103,19 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/HPOlib$wrapping_autosklearn.coverage" NAME="wrapping_autosklearn Coverage Results" MODIFIED="1453187918477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/auto-sklearn/cv/smac_2_06_01-dev_500_2016-1-18--22-40-50-124646" />
+    <SUITE FILE_PATH="coverage/HPOlib$tpecall.coverage" NAME="tpecall Coverage Results" MODIFIED="1453704174920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/optimizers/tpe" />
+    <SUITE FILE_PATH="coverage/HPOlib$wrapping_autosklearn.coverage" NAME="wrapping_autosklearn Coverage Results" MODIFIED="1454305896017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/nvb_hyperband_1000_2016-1-31--21-49-44-512386" />
+    <SUITE FILE_PATH="coverage/HPOlib$task_types.coverage" NAME="task_types Coverage Results" MODIFIED="1453962318059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/auto-sklearn" />
+    <SUITE FILE_PATH="coverage/HPOlib$runsolver_wrapper.coverage" NAME="runsolver_wrapper Coverage Results" MODIFIED="1460354833314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/caffe_cnn/smac_2_06_01-dev_3_2016-4-10--22-57-18-838138" />
+    <SUITE FILE_PATH="coverage/HPOlib$hyperbandSHA_call.coverage" NAME="hyperbandSHA_call Coverage Results" MODIFIED="1453747588099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/optimizers/nvb_hyperband" />
+    <SUITE FILE_PATH="coverage/HPOlib$Unittests_in_test_terminationcriterion.coverage" NAME="Unittests in test_terminationcriterion Coverage Results" MODIFIED="1463434110954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/tests" />
+    <SUITE FILE_PATH="coverage/HPOlib$hyperbandcall.coverage" NAME="hyperbandcall Coverage Results" MODIFIED="1453595326903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/optimizers/nvb_hyperband" />
     <SUITE FILE_PATH="coverage/HPOlib$HPOlib_convert.coverage" NAME="HPOlib-convert Coverage Results" MODIFIED="1449474302113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/metalearning/hyperopt_august2013_mod" />
-    <SUITE FILE_PATH="coverage/HPOlib$meta_grid.coverage" NAME="meta_grid Coverage Results" MODIFIED="1449474518849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/metalearning" />
-    <SUITE FILE_PATH="coverage/HPOlib$wrapping.coverage" NAME="wrapping Coverage Results" MODIFIED="1451678864376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv" />
-    <SUITE FILE_PATH="coverage/HPOlib$runsolver_wrapper.coverage" NAME="runsolver_wrapper Coverage Results" MODIFIED="1452488577127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/nvb_hyperband_3000_2016-1-10--21-1-42-832499" />
-    <SUITE FILE_PATH="coverage/HPOlib$task_types.coverage" NAME="task_types Coverage Results" MODIFIED="1452223790313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/auto-sklearn" />
-    <SUITE FILE_PATH="coverage/HPOlib$hyperbandcall.coverage" NAME="hyperbandcall Coverage Results" MODIFIED="1452491621280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/optimizers/nvb_hyperband" />
     <SUITE FILE_PATH="coverage/HPOlib$wrappingLogistic.coverage" NAME="wrappingLogistic Coverage Results" MODIFIED="1452481038386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/nvb_hyperband_1000_2016-1-10--2-18-14-785821" />
     <SUITE FILE_PATH="coverage/HPOlib$nnet_mrbi.coverage" NAME="nnet_mrbi Coverage Results" MODIFIED="1438153976039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpnnet" />
+    <SUITE FILE_PATH="coverage/HPOlib$meta_grid.coverage" NAME="meta_grid Coverage Results" MODIFIED="1449474518849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/metalearning" />
+    <SUITE FILE_PATH="coverage/HPOlib$cifar10_wrapper.coverage" NAME="cifar10_wrapper Coverage Results" MODIFIED="1463687808012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/caffe_cnn/" />
+    <SUITE FILE_PATH="coverage/HPOlib$wrapping.coverage" NAME="wrapping Coverage Results" MODIFIED="1460354027945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/benchmarks/caffe_cnn" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -83,103 +126,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wrapping_autosklearn.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py">
+      <file leaf-file-name="cifar10_wrapper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/benchmarks/caffe_cnn/cifar10_wrapper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5197869">
-              <caret line="281" column="53" selection-start-line="281" selection-start-column="53" selection-end-line="281" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="322" column="57" selection-start-line="322" selection-start-column="57" selection-end-line="322" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wrapping_util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HPOlib/wrapping_util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cifar10_wrapper.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/benchmarks/svhn/cifar10_wrapper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22137405">
+              <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cifar10_wrapper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/benchmarks/mrbi/cifar10_wrapper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="221" column="40" selection-start-line="221" selection-start-column="40" selection-end-line="221" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/benchmarks/caffe_cnn/config.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_terminationcriterion.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/tests/test_terminationcriterion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cross_validation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/sklearn/cross_validation.py">
+      <file leaf-file-name="terminationcriterion.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/terminationcriterion.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="433" column="0" selection-start-line="433" selection-start-column="0" selection-end-line="433" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="runsolver_wrapper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HPOlib/runsolver_wrapper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="352" column="35" selection-start-line="352" selection-start-column="35" selection-end-line="352" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classification_metrics.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/metrics/classification_metrics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Experiment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HPOlib/Experiment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="273" column="17" selection-start-line="273" selection-start-column="17" selection-end-line="273" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="xy_data_manager.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/data/xy_data_manager.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cv_evaluator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/cv_evaluator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resampling.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/resampling.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="abstract_evaluator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/abstract_evaluator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hyperbandcall.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+              <caret line="103" column="35" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -195,35 +208,54 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/benchmarks/auto-sklearn" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/ipy.py" />
-        <option value="$PROJECT_DIR$/optimizers/tpe/tpecall.py" />
         <option value="$PROJECT_DIR$/optimizers/tpe/__init__.py" />
         <option value="$PROJECT_DIR$/HPOlib/check_before_start.py" />
         <option value="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpnnet/bergstra_2011_helper.py" />
         <option value="$PROJECT_DIR$/benchmarks/HPOlib-hpnnet/hpnnet/nnet_mrbi.py" />
         <option value="$PROJECT_DIR$/benchmarks/metalearning/meta_grid.py" />
-        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod/config.py" />
-        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/task_types" />
         <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/tpecall.py" />
-        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/config.cfg" />
         <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperband_parser.py" />
-        <option value="$PROJECT_DIR$/HPOlib/benchmark_util.py" />
         <option value="$PROJECT_DIR$/HPOlib/wrapping.py" />
         <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperbandDefault.cfg" />
-        <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperband.py" />
         <option value="$PROJECT_DIR$/HPOlib/cv.py" />
+        <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/run_nvb.py" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/wrappingLogistic.py" />
+        <option value="$PROJECT_DIR$/optimizers/tpe/random_with_init.py" />
+        <option value="$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/rand.py" />
+        <option value="$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/fmin.py" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py" />
+        <option value="$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod.py" />
+        <option value="$PROJECT_DIR$/optimizers/tpe/tpecall.py" />
+        <option value="$PROJECT_DIR$/optimizers/tpe/hyperopt_with_init.py" />
+        <option value="$PROJECT_DIR$/optimizers/smac/smac_2_06_01-dev.py" />
+        <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/hyperband_SHA.py" />
+        <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperband.py" />
+        <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/run_hyperbandSHA.py" />
+        <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandSHA_call.py" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/config.cfg" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/download_openml_data.py" />
+        <option value="$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/pyMetaLearn-0.1.dev0-py2.7.egg/pyMetaLearn/openml/openml_dataset.py" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/task_types" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/random_hyperopt_august2013_mod_30001_2016-1-27--13-49-30-373227/config.cfg" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod/config_exclude.py" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/smac_2_06_01-dev/space.pcs" />
+        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod/config.py" />
         <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py" />
+        <option value="$PROJECT_DIR$/HPOlib/data_util.py" />
+        <option value="$PROJECT_DIR$/HPOlib/Experiment.py" />
+        <option value="$PROJECT_DIR$/HPOlib/benchmark_util.py" />
         <option value="$PROJECT_DIR$/build/lib/HPOlib/runsolver_wrapper.py" />
         <option value="$PROJECT_DIR$/HPOlib/runsolver_wrapper.py" />
-        <option value="$PROJECT_DIR$/optimizers/nvb_hyperband/run_nvb.py" />
-        <option value="$PROJECT_DIR$/HPOlib/Experiment.py" />
-        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/wrappingLogistic.py" />
-        <option value="$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py" />
+        <option value="$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/terminationcriterion.py" />
+        <option value="$PROJECT_DIR$/benchmarks/mrbi/cifar10_wrapper.py" />
+        <option value="$PROJECT_DIR$/benchmarks/svhn/cifar10_wrapper.py" />
+        <option value="$PROJECT_DIR$/benchmarks/caffe_cnn/cifar10_wrapper.py" />
       </list>
     </option>
   </component>
@@ -233,10 +265,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2625" />
-    <option name="y" value="24" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
     <option name="width" value="2495" />
-    <option name="height" value="1416" />
+    <option name="height" value="1444" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -263,6 +295,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,7 +308,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.9 virtualenv at ~/school/Projects/auto-sklearn/virtual-auto &gt;" />
+              <option name="myItemId" value="&lt; Python 2.7.9 (/usr/bin/python2.7) &gt;" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -289,11 +322,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.9 virtualenv at ~/school/Projects/auto-sklearn/virtual-auto &gt;" />
+              <option name="myItemId" value="&lt; Python 2.7.9 (/usr/bin/python2.7) &gt;" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="site-packages" />
+              <option name="myItemId" value="HPOlib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -307,178 +340,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.9 virtualenv at ~/school/Projects/auto-sklearn/virtual-auto &gt;" />
+              <option name="myItemId" value="&lt; Python 2.7.9 (/usr/bin/python2.7) &gt;" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="site-packages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sklearn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="runsolver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="optimizers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="optimizers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tpe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="optimizers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tpe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hyperopt_august2013_mod_src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="optimizers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tpe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hyperopt_august2013_mod_src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hyperopt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="optimizers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smac" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="optimizers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nvb_hyperband" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="HPOlib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -494,144 +359,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benchmarks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto-sklearn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benchmarks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto-sklearn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="random_hyperopt_august2013_mod" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benchmarks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto-sklearn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nvb_hyperband" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benchmarks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto-sklearn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nocv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benchmarks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto-sklearn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hyperopt_august2013_mod" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benchmarks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto-sklearn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HPOlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -759,54 +491,37 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projects/auto-sklearn" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="Q16_LOG&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/benchmarks/auto-sklearn/hyperopt_august2013_mod" />
       <recent name="$PROJECT_DIR$/optimizers/nvb_hyperband" />
       <recent name="$PROJECT_DIR$/benchmarks/auto-sklearn/nvb_hyperband" />
       <recent name="$PROJECT_DIR$/benchmarks/auto-sklearn" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.wrapping_autosklearn">
-    <configuration default="false" name="meta_grid" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.cifar10_wrapper">
+    <configuration default="false" name="runsolver_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/metalearning" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/caffe_cnn/smac_2_06_01-dev_3_2016-4-10--22-57-18-838138" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="HPOlib" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/benchmarks/metalearning/meta_grid.py" />
-      <option name="PARAMETERS" value="--params -libsvm_svc:gamma 8 -preprocessing None -classifier libsvm_svc -libsvm_svc:C 4" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="task_types" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/auto-sklearn" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="HPOlib" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/benchmarks/auto-sklearn/task_types" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HPOlib/runsolver_wrapper.py" />
+      <option name="PARAMETERS" value="0 0 2.147483647E9 2147483647 -1 -weight_cost4 '4.231633296200827E-5' -weight_cost3 '0.006446578619130535' -scale '0.006503670387890761' -weight_cost2 '1.9557087288145647E-5' -weight_cost1 '0.005389066588317223' -power '0.8904438080022609' -learning_rate '0.16504513472190016' -lr_step '0.9988355395812535'" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
@@ -817,51 +532,74 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/auto-sklearn/cv/smac_2_06_01-dev_500_2016-1-18--22-40-50-124646" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/nvb_hyperband_1000_2016-1-31--21-49-44-512386" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="HPOlib" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py" />
-      <option name="PARAMETERS" value="--params -classifier:liblinear_svc:fit_intercept True -classifier:liblinear_svc:multi_class ovr -classifier:liblinear_svc:penalty l2 -classifier:liblinear_svc:intercept_scaling 1 -rescaling:__choice__ standardize -one_hot_encoding:use_minimum_fraction False -classifier:__choice__ liblinear_svc -classifier:liblinear_svc:dual False -classifier:liblinear_svc:tol 0.000277464565715 -classifier:liblinear_svc:loss squared_hinge -classifier:liblinear_svc:C 4095.36689739 -imputation:strategy most_frequent -preprocessor:__choice__ no_preprocessing -balancing:strategy none" />
+      <option name="PARAMETERS" value="0 nvb_hyperband 0 0 0 -classifier:gradient_boosting:max_features 3.68652452619 -classifier:gradient_boosting:subsample 0.830637252337 -one_hot_encoding:use_minimum_fraction False -classifier:gradient_boosting:min_samples_leaf 1 -classifier:gradient_boosting:min_samples_split 17 -rescaling:__choice__ min/max -classifier:gradient_boosting:min_weight_fraction_leaf 0.0 -classifier:gradient_boosting:n_estimators 100 -classifier:gradient_boosting:loss deviance -preprocessor:__choice__ no_preprocessing -train_size 6666 -classifier:gradient_boosting:max_leaf_nodes None -LOG10_classifier:gradient_boosting:learning_rate -3.11984258436 -imputation:strategy most_frequent -classifier:__choice__ gradient_boosting -balancing:strategy weighting -classifier:gradient_boosting:max_depth 1" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="hyperbandcall" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="wrapping" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/caffe_cnn" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HPOlib" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/build/lib/HPOlib/wrapping.py" />
+      <option name="PARAMETERS" value="-o ../../optimizers/smac/smac" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cifar10_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/optimizers/nvb_hyperband" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/caffe_cnn/" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="HPOlib" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py" />
-      <option name="PARAMETERS" value="-p $PROJECT_DIR$/benchmarks/auto-sklearn/nocv/nvb_hyperband_3000_2016-1-10--21-17-21-331966/config.py -m 1000 -s 3000 --cwd $PROJECT_DIR$/benchmarks/auto-sklearn/nocv/nvb_hyperband_3000_2016-1-10--21-17-21-331966 --tid 9 --datadir $PROJECT_DIR$/../Data" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/benchmarks/caffe_cnn/cifar10_wrapper.py" />
+      <option name="PARAMETERS" value="--params -weight_cost4 5.762061017155697 -weight_cost3 0.17751554671632952 -scale 0.020777291079594935 -weight_cost2 0.0018383669116710383 -weight_cost1 0.06220024183521298 -power 1.209098661798829 -learning_rate 1.872174425280048E-4 -lr_step 4" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="runsolver_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Unittests in test_terminationcriterion" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/nvb_hyperband_3000_2016-1-10--21-1-42-832499" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="HPOlib" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HPOlib/runsolver_wrapper.py" />
-      <option name="PARAMETERS" value="0 nvb_hyperband 0 0 0 -one_hot_encoding:use_minimum_fraction False -preprocessor:pca:keep_variance 0.93454403646 -rescaling:__choice__ normalize -preprocessor:pca:whiten False -classifier:__choice__ k_nearest_neighbors -train_size 20 -preprocessor:__choice__ pca -classifier:k_nearest_neighbors:weights distance -classifier:k_nearest_neighbors:p 2 -imputation:strategy most_frequent -LOG10_Q1_classifier:k_nearest_neighbors:n_neighbors 0.232628174483 -balancing:strategy weighting" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/tests/test_terminationcriterion.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -1058,39 +796,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="wrapping" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/benchmarks/auto-sklearn/nocv" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="HPOlib" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HPOlib/wrapping.py" />
-      <option name="PARAMETERS" value="-o $PROJECT_DIR$/optimizers/smac/smac" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Python.wrapping" />
-      <item index="1" class="java.lang.String" itemvalue="Python.meta_grid" />
-      <item index="2" class="java.lang.String" itemvalue="Python.task_types" />
-      <item index="3" class="java.lang.String" itemvalue="Python.wrapping_autosklearn" />
-      <item index="4" class="java.lang.String" itemvalue="Python.hyperbandcall" />
-      <item index="5" class="java.lang.String" itemvalue="Python.runsolver_wrapper" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.runsolver_wrapper" />
+      <item index="1" class="java.lang.String" itemvalue="Python.wrapping_autosklearn" />
+      <item index="2" class="java.lang.String" itemvalue="Python.wrapping" />
+      <item index="3" class="java.lang.String" itemvalue="Python.cifar10_wrapper" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test_terminationcriterion" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.wrapping_autosklearn" />
-        <item index="1" class="java.lang.String" itemvalue="Python.hyperbandcall" />
+        <item index="0" class="java.lang.String" itemvalue="Python.cifar10_wrapper" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test_terminationcriterion" />
         <item index="2" class="java.lang.String" itemvalue="Python.runsolver_wrapper" />
-        <item index="3" class="java.lang.String" itemvalue="Python.task_types" />
-        <item index="4" class="java.lang.String" itemvalue="Python.meta_grid" />
+        <item index="3" class="java.lang.String" itemvalue="Python.wrapping" />
+        <item index="4" class="java.lang.String" itemvalue="Python.wrapping_autosklearn" />
       </list>
     </recent_temporary>
   </component>
@@ -1107,30 +826,53 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_in_test_terminationcriterion - 2016.05.16 at 14h 21m 34s.xml">
+      <configuration name="Unittests in test_terminationcriterion" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_terminationcriterion - 2016.05.16 at 14h 23m 26s.xml">
+      <configuration name="Unittests in test_terminationcriterion" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_terminationcriterion - 2016.05.16 at 14h 24m 37s.xml">
+      <configuration name="Unittests in test_terminationcriterion" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_terminationcriterion - 2016.05.16 at 14h 25m 19s.xml">
+      <configuration name="Unittests in test_terminationcriterion" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_terminationcriterion - 2016.05.16 at 14h 27m 19s.xml">
+      <configuration name="Unittests in test_terminationcriterion" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_terminationcriterion - 2016.05.16 at 14h 28m 01s.xml">
+      <configuration name="Unittests in test_terminationcriterion" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_terminationcriterion - 2016.05.16 at 15h 12m 22s.xml">
+      <configuration name="Unittests in test_terminationcriterion" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="2625" y="24" width="2495" height="1416" extended-state="6" />
-    <editor active="false" />
+    <frame x="65" y="-4" width="2495" height="1444" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910448" sideWeight="0.50941885" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.250501" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.51102203" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39701492" sideWeight="0.48737475" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.48897797" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.49058115" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3977612" sideWeight="0.48737475" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1203,13 +945,8 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/HPOlib/benchmark_util.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py</url>
-          <line>125</line>
+          <line>127</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -1243,16 +980,69 @@
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py</url>
-          <line>148</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/HPOlib/Experiment.py</url>
           <line>281</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/tpe.py</url>
+          <line>874</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/optimizers/tpe/tpecall.py</url>
+          <line>107</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/optimizers/nvb_hyperband/run_hyperbandSHA.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandSHA_call.py</url>
+          <line>141</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/optimizers/nvb_hyperband/run_hyperbandSHA.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/optimizers/nvb_hyperband/run_hyperbandSHA.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py</url>
+          <line>308</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py</url>
+          <line>191</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py</url>
+          <line>178</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/HPOlib/runsolver_wrapper.py</url>
+          <line>351</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/benchmarks/caffe_cnn/cifar10_wrapper.py</url>
+          <line>330</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -1260,382 +1050,368 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="65" />
+      <option name="time" value="125" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/tpe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6944447">
-          <caret line="714" column="17" selection-start-line="714" selection-start-column="17" selection-end-line="714" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/benchmarks/auto-sklearn/nvb_hyperband/config.py">
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/pipeline/classification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="65" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/benchmarks/auto-sklearn/task_types">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15535098">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod.py">
+    <entry file="file://$PROJECT_DIR$/benchmarks/auto-sklearn/smac_2_06_01-dev/space.pcs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="45" selection-start-line="71" selection-start-column="11" selection-end-line="74" selection-end-column="45" />
+          <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm50/system/python_stubs/1514366044/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33256617">
-          <caret line="871" column="8" selection-start-line="871" selection-start-column="8" selection-end-line="871" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/__init__.py">
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/pipeline/components/classification/decision_tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/test_evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm50/system/python_stubs/1514366044/thread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/metrics/regression_metrics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/scipy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/data/abstract_data_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.087456845">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/numpy/core/numeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2153" column="4" selection-start-line="2153" selection-start-column="4" selection-end-line="2153" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/pyMetaLearn-0.1.dev0-py2.7.egg/pyMetaLearn/openml/openml_task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/pyMetaLearn-0.1.dev0-py2.7.egg/pyMetaLearn/openml/openml_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/benchmarks/auto-sklearn/nocv/config.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32061067">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.27586207">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/smac/smac_2_06_01-devDefault.cfg">
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/util/smac.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="61" column="15" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperbandDefault.cfg">
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/util/submit_process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/rand.py">
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/cli/SMAC_interface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperband_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/util/backend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/pipeline/implementations/gem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/HPOlib-0.1.0-py2.7.egg/HPOlib/benchmark_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HPOlib/wrapping_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="197" column="30" selection-start-line="197" selection-start-column="30" selection-end-line="197" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HPOlib/benchmark_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
-          <folding>
-            <element signature="e#788#802#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/cli/base_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/holdout_evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HPOlib/wrapping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="543" column="47" selection-start-line="543" selection-start-column="42" selection-end-line="543" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/lib/HPOlib/runsolver_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HPOlib/cv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2406" column="0" selection-start-line="2406" selection-start-column="0" selection-end-line="2406" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/HPOlib-0.1.0-py2.7.egg/HPOlib/Experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="245" column="39" selection-start-line="245" selection-start-column="39" selection-end-line="245" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="56" selection-start-line="0" selection-start-column="56" selection-end-line="0" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/tpecall.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="135" column="20" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/fmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="208" column="24" selection-start-line="208" selection-start-column="24" selection-end-line="208" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/mongoexp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="756" column="67" selection-start-line="756" selection-start-column="67" selection-end-line="756" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/run_nvb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/tpe/hyperopt_august2013_mod_src/hyperopt/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="563" column="0" selection-start-line="563" selection-start-column="0" selection-end-line="563" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperband.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/abstract_evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/data/xy_data_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/sklearn/cross_validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="433" column="0" selection-start-line="433" selection-start-column="0" selection-end-line="433" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/metrics/classification_metrics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HPOlib/runsolver_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="352" column="35" selection-start-line="352" selection-start-column="35" selection-end-line="352" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HPOlib/Experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="273" column="17" selection-start-line="273" selection-start-column="17" selection-end-line="273" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/cv_evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-          <folding />
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/resampling.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/pipeline/components/classification/passive_aggressive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/cli/base_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/abstract_evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="166" column="56" selection-start-line="166" selection-start-column="56" selection-end-line="166" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/run_nvb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandSHA_call.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="33" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/automl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="243" column="33" selection-start-line="243" selection-start-column="33" selection-end-line="243" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/metrics/regression_metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07990868">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/metrics/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2739726">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="61" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/metrics/classification_metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/metrics/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/run_hyperbandSHA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/nvb_hyperband.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/pipeline/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1369863">
+          <caret line="95" column="73" selection-start-line="95" selection-start-column="73" selection-end-line="95" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42237443">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/AutoSklearn-0.0.1.dev0-py2.7-linux-x86_64.egg/autosklearn/evaluation/holdout_evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43378997">
+          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimizers/nvb_hyperband/hyperbandcall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HPOlib/data_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HPOlib/wrapping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HPOlib/Locker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projects/auto-sklearn/virtual-auto/lib/python2.7/site-packages/pyMetaLearn-0.1.dev0-py2.7.egg/pyMetaLearn/openml/manage_openml_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/lib/HPOlib/runsolver_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23796791">
+          <caret line="272" column="22" selection-start-line="272" selection-start-column="22" selection-end-line="272" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimizers/spearmint/spearmint_april2013_mod_src/spearmint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="446" column="14" selection-start-line="446" selection-start-column="14" selection-end-line="446" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimizers/smac/smac_2_06_01-dev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/lib/HPOlib/wrapping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HPOlib/Experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="237" column="0" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/benchmarks/auto-sklearn/wrapping_autosklearn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5197869">
-          <caret line="281" column="53" selection-start-line="281" selection-start-column="53" selection-end-line="281" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/curvemodels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6954023">
+          <caret line="548" column="40" selection-start-line="548" selection-start-column="40" selection-end-line="548" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HPOlib/benchmark_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/mixture/gmm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="583" column="65" selection-start-line="583" selection-start-column="65" selection-end-line="583" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/scikit_learn-0.15.1-py2.7-linux-x86_64.egg/sklearn/utils/extmath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0269923">
+          <caret line="167" column="4" selection-start-line="167" selection-start-column="4" selection-end-line="167" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/scikit_learn-0.15.1-py2.7-linux-x86_64.egg/sklearn/linear_model/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6028278">
+          <caret line="134" column="27" selection-start-line="134" selection-start-column="27" selection-end-line="134" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HPOlib/runsolver_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019280206">
+          <caret line="199" column="76" selection-start-line="199" selection-start-column="76" selection-end-line="199" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/caffe_cnn/config.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/tests/test_terminationcriterion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/pylearningcurvepredictor/pylrpredictor/terminationcriterion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="35" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HPOlib/wrapping_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/caffe_cnn/cifar10_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="322" column="57" selection-start-line="322" selection-start-column="57" selection-end-line="322" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/mrbi/cifar10_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="221" column="40" selection-start-line="221" selection-start-column="40" selection-end-line="221" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/benchmarks/svhn/cifar10_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22137405">
+          <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

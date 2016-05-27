@@ -270,7 +270,7 @@ def parse_output_files(cfg, run_instance_output, runsolver_output_file,additiona
         if result_array[8]=='test_error':
             additional_data={}
             additional_data['test_error'] = result_array[9]
-            if result_array[10]=='train_size':
+            if 'train_size' in result_array:
                 additional_data['train_size'] = result_array[11]
         rval = (cpu_time, wallclock_time, "SAT", float(result_array[6].strip(",")),
                 None if additional_data is None else additional_data)

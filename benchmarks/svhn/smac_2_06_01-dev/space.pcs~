@@ -1,0 +1,9 @@
+learning_rate [5.0e-05, 5.0] [0.15]l
+weight_cost1 [5.0e-05, 5.0] [0.15]l
+weight_cost2 [5.0e-05, 5.0] [0.15]l
+weight_cost3 [5.0e-05, 5.0] [0.15]l
+weight_cost4 [5.0e-05, 5.0] [0.15]l
+scale [5.0e-06, 5] [0.15]l
+power [0.01, 3] [0.75]
+lr_step [1, 4] [1]i
+

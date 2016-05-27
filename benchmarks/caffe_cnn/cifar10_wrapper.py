@@ -1,13 +1,12 @@
-import random
 import os
-os.environ['GLOG_minloglevel'] = '1'
+os.environ['GLOG_minloglevel'] = '0'
 import caffe
 import time
 import numpy as np
 import os
 import HPOlib.benchmark_util as benchmark_util
 import HPOlib.wrapping_util as wrapping_util
-import sys
+import pylrpredictor.terminationcriterion as termcrit
 
 #Globals
 base_lr = 0.001
@@ -17,15 +16,15 @@ bias_param   = dict(lr_mult=2, decay_mult=0)
 learned_param = [weight_param, bias_param]
 data_dir="/home/lisha/school/caffe/examples/cifar10"
 
-class Logger(object):
-    def __init__(self,dir):
-        self.terminal = sys.stdout
-        self.log = open(dir+"/hyperband_run.log", "a")
+#class Logger(object):
+#    def __init__(self,dir):
+#        self.terminal = sys.stdout
+#        self.log = open(dir+"/hyperband_run.log", "a")
 
-    def write(self, message):
-        self.terminal.write(message)
-        self.log.write(message)
-        self.log.flush()
+#    def write(self, message):
+#        self.terminal.write(message)
+#        self.log.write(message)
+#        self.log.flush()
 
 
 def build_net(arm, split=0):
@@ -111,8 +110,8 @@ def build_solver(arm):
     # Here, we 'step' the learning rate by multiplying it by a factor `gamma`
     # every `stepsize` iterations.
     s.lr_policy = 'step'
-    s.gamma = arm['lr_step']
-    s.stepsize = 1
+    s.gamma = 0.1
+    s.stepsize = int(30000/arm['lr_step'])
 
     # Set other SGD hyperparameters. Setting a non-zero `momentum` takes a
     # weighted average of the current gradient and previous gradients to make
@@ -189,56 +188,152 @@ def generate_arm(params,dir):
     return arm
 
 
-def run_solver(unit, n_units, arm, disp_interval=100):
+def run_solver(unit, n_units, arm, val_batch, test_batch, do_stop=False):
     #print(arm['dir'])
     s = caffe.get_solver(arm['solver_file'])
 
-    if arm['n_iter']>0:
-        prefix=arm['dir']+"/cifar10_data_iter_"
-        s.restore(prefix+str(arm['n_iter'])+".solverstate")
-        s.net.copy_from(prefix+str(arm['n_iter'])+".caffemodel")
-        s.test_nets[0].share_with(s.net)
-        s.test_nets[1].share_with(s.net)
+    #if arm['n_iter']>0:
+    #    prefix=arm['dir']+"/cifar10_data_iter_"
+    #    s.restore(prefix+str(arm['n_iter'])+".solverstate")
+    #    s.net.copy_from(prefix+str(arm['n_iter'])+".caffemodel")
+    #    s.test_nets[0].share_with(s.net)
+    #    s.test_nets[1].share_with(s.net)
     start=time.time()
+    time_val=0
+    time_early=0
     if unit=='time':
         while time.time()-start<n_units:
             s.step(1)
             arm['n_iter']+=1
             #print time.localtime(time.time())
     elif unit=='iter':
-        n_units=min(n_units,60000-arm['n_iter'])
-        s.step(n_units)
-        arm['n_iter']+=n_units
+        if do_stop:
+            early_stop = 0
+            while not early_stop and arm['n_iter']<30000:
+                s.step(400)
+                arm['n_iter']+=400
+                val_acc=0
+                st=time.time()
+                for i in range(val_batch):
+                    s.test_nets[0].forward()
+                    val_acc += s.test_nets[0].blobs['acc'].data
+                val_acc=val_acc/val_batch
+                time_val+=time.time()-st
+                if os.path.exists("learning_curve.txt"):
+                    with open("learning_curve.txt", "a") as myfile:
+                        myfile.write("\n")
+                        myfile.write(str(val_acc))
+                else:
+                    with open("learning_curve.txt", "w") as myfile:
+                        myfile.write(str(val_acc))
+                if arm['n_iter']%8000==0:
+                    st=time.time()
+                    early_stop=check_early_stopping(75)
+                    time_early+=time.time()-st
+        else:
+            s.step(n_units)
+            arm['n_iter']+=n_units
+
     s.snapshot()
     train_loss = s.net.blobs['loss'].data
     val_acc=0
     test_acc=0
-    n_iter = 100
-    for i in range(n_iter):
+
+    if do_stop:
+        if early_stop:
+            p_file=open("y_predict.txt",'r')
+            val_acc=float(p_file.readline())
+            p_file.close()
+            os.remove("learning_curve.txt")
+            with open("run_log.txt", "a") as myfile:
+                myfile.write("val_error," + str(val_acc) + ",test_error," + str(test_acc)+","+"epochs," +str(arm['n_iter']/400)+","+"val_time,"+str(time_val/60)+","+"early_time,"+str(time_early/60)+"\n")
+            return train_loss,val_acc,test_acc
+
+    for i in range(val_batch):
         s.test_nets[0].forward()
         val_acc += s.test_nets[0].blobs['acc'].data
+    for i in range(test_batch):
         s.test_nets[1].forward()
         test_acc += s.test_nets[1].blobs['acc'].data
-    val_acc=val_acc/n_iter
-    test_acc=test_acc/n_iter
-    return train_loss,val_acc, test_acc
+    val_acc=val_acc/val_batch
+    test_acc=test_acc/test_batch
 
-def main(params, dir):
+    if do_stop:
+        best_val=0
+        if os.path.exists("ybest.txt"):
+            fh=open("ybest.txt", "r")
+            for line in fh:
+                pass
+            best_val= float(line.strip())
+        best_val=max(val_acc,best_val)
+        with open("ybest.txt", "w") as myfile:
+            myfile.write(str(best_val))
+        os.remove("learning_curve.txt")
+        with open("run_log.txt", "a") as myfile:
+            myfile.write("val_error," + str(val_acc) + ",test_error," + str(test_acc)+","+"epochs," +str(arm['n_iter']/400)+","+"val_time,"+str(time_val/60)+","+"early_time,"+str(time_early/60)+"\n")
+    return train_loss,val_acc, test_acc
+def check_early_stopping(max_iter):
+
+    return termcrit.main(mode="conservative",
+                prob_x_greater_type="posterior_prob_x_greater_than",
+                nthreads=4)
+# def create_arm(dict,arm_dir):
+#     arm={}
+#     for k in dict.keys():
+#         arm[k[1:]]=float(dict[k])
+#     arm['lr_step']=int(arm['lr_step'])
+#     arm['train_net_file'] = arm_dir+'/network_train.prototxt'
+#     arm['val_net_file'] = arm_dir+'/network_val.prototxt'
+#     arm['test_net_file'] = arm_dir+'/network_test.prototxt'
+#     arm['solver_file'] = arm_dir+'/network_solver.prototxt'
+#     arm['batch_size']=100
+#     arm['n_iter']=0
+#     arm['dir']=arm_dir
+#     arm['init_std1']= 0.0001
+#     arm['init_std2']=0.01
+#     arm['init_std3']=0.01
+#     arm['init_std4']=0.01
+#     return arm
+# def test_config():
+#     caffe.set_device(0)
+#     caffe.set_mode_gpu()
+#
+#     rootdir='/home/lisha/school/Projects/hyperband_nnet/hyperband2/cifar10/'
+#     work_dir=rootdir+'caffe_cnn/early_stop/smac_2_06_01-dev_3800_2016-5-17--18-21-17-927189'
+#     os.chdir(work_dir)
+#     data=pickle.load(open('smac_2_06_01-dev.pkl','r'))
+#     val_errors=[t['result'] for t in data['trials']]
+#     best_arm=numpy.nanargmin(val_errors)
+#     arm_dir=os.getcwd()+'/arm'+str(best_arm+1)
+#     params=data['trials'][best_arm]['params']
+#     p_dict={}
+#     for k in params.keys():
+#         p_dict[k[1:]]=params[k]
+#
+#     arm = generate_arm(p_dict,work_dir)
+#     train_loss,val_acc, test_acc = run_solver('iter',30000,arm,True)
+#     print train_loss, val_acc, test_acc
+
+#if __name__ == "__main__":
+#    test_config()
+
+def main(params, dir,do_stop):
     arm = generate_arm(params,dir)
     print arm
-    train_loss,val_acc, test_acc = run_solver('iter',60000,arm)
+    train_loss,val_acc, test_acc = run_solver('iter',2000,arm,100,100,do_stop)
     return train_loss, val_acc, test_acc
 
 if __name__ == "__main__":
     starttime = time.time()
     experiment_dir = os.getcwd()
-    sys.stdout = Logger(experiment_dir)
+    #sys.stdout = Logger(experiment_dir)
     args, params = benchmark_util.parse_cli()
     config = wrapping_util.load_experiment_config_file()
     device= config.get("EXPERIMENT", "device")
+    do_stop= config.get("EXPERIMENT", "do_stop")
     caffe.set_device(int(device))
     caffe.set_mode_gpu()
-    train_loss, val_acc, test_acc = main(params, experiment_dir)
+    train_loss, val_acc, test_acc = main(params, experiment_dir,int(do_stop))
     val_error=1-val_acc
     test_error = 1-test_acc
     duration = time.time() - starttime

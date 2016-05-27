@@ -251,7 +251,7 @@ class Experiment:
         if (self.trials[_id]['instance_status'] != RUNNING_STATE).all():
             self.trials[_id]['status'] = INCOMPLETE_STATE
         # Check if all runs are finished
-        self.check_cv_finished(_id)
+        self.check_cv_finished(_id,additional_info)
         self.total_wallclock_time += duration
         self._sanity_check()
         self._save_jobs()

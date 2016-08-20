@@ -83,7 +83,6 @@ def main():
                                       "optimizing.")
     parser.add_argument("--tid", type=int, help="Which open_ml task id to use.")
     parser.add_argument("--datadir", help="Where to save the open ml data.")
-    parser.add_argument("--constantB",type=int, help="Finite horizon hyperband")
 
     args, unknown = parser.parse_known_args()
 
@@ -148,7 +147,7 @@ def main():
             # it also specifies the maximum number of rounds
             R = float(max_train_size)
             r = float(min_train_size)
-            if args.constantB:
+            if args.fixB:
                 B=(int(logeta(R/r))+1)*max_train_size
             else:
                 B = int((2**k)*max_train_size)

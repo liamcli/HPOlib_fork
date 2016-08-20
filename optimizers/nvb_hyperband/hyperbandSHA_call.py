@@ -83,6 +83,7 @@ def main():
                                       "optimizing.")
     parser.add_argument("--tid", type=int, help="Which open_ml task id to use.")
     parser.add_argument("--datadir", help="Where to save the open ml data.")
+    parser.add_argument("--constantB",type=int, help="Finite horizon hyperband")
 
     args, unknown = parser.parse_known_args()
 
@@ -139,12 +140,6 @@ def main():
         # Now run TPE, emulate fmin.fmin()
         state_filename = "state.pkl"
         while True:
-            B = int((2**k)*max_train_size)
-            k+=1
-            print "\nBudget B = %d" % B
-            print '###################'
-
-
             eta = 3.
             def logeta(x):
                 return np.log(x)/np.log(eta)
@@ -153,6 +148,16 @@ def main():
             # it also specifies the maximum number of rounds
             R = float(max_train_size)
             r = float(min_train_size)
+            if args.constantB:
+                B=(int(logeta(R/r))+1)*max_train_size
+            else:
+                B = int((2**k)*max_train_size)
+            k+=1
+            print "\nBudget B = %d" % B
+            print '###################'
+
+
+
             ell_max = int(min(B/R-1,int(logeta(R/r))))
             ell = ell_max
             try:

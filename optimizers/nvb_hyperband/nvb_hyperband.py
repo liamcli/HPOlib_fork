@@ -110,12 +110,10 @@ def main(config, options, experiment_dir, experiment_directory_prefix, **kwargs)
             os.symlink(os.path.join(experiment_dir, optimizer_str, space),
                        os.path.join(optimizer_dir, os.path.basename(space)))
 
-    import hyperopt
-    path_to_loaded_optimizer = os.path.abspath(os.path.dirname(os.path.dirname(hyperopt.__file__)))
 
     logger.info("### INFORMATION ################################################################")
     logger.info("# You are running:                                                             #")
-    logger.info("# %76s #" % path_to_loaded_optimizer)
+    logger.info("# Hyperband Constant #" )
     logger.info("################################################################################")
 
     return cmd, optimizer_dir

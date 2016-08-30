@@ -29,6 +29,9 @@ sudo PYTHONPATH=$PYTHONPATH HPOlib-run -o ../../../optimizers/$searcher -s $s --
 elif [ "$1" = "nvb_hyperband/nvb_hyperbandadap" ]; then
 export searcher="nvb_hyperband/nvb_hyperband"
 sudo PYTHONPATH=$PYTHONPATH HPOlib-run -o ../../../optimizers/$searcher -s $s --HPOLIB:experiment_directory_prefix open_ml_"$2"_data_seed_"$d_s"_adap_ --HYPERBAND:adaptive 1 --EXPERIMENT:openml_tid $2 --EXPERIMENT:data_split_seed $d_s
+elif [ "$1" = "nvb_hyperband/hyperband_constant" ]; then
+export searcher="nvb_hyperband/nvb_hyperband"
+sudo PYTHONPATH=$PYTHONPATH HPOlib-run -o ../../../optimizers/$searcher -s $s --HPOLIB:experiment_directory_prefix open_ml_"$2"_data_seed_"$d_s"_adap_ --HYPERBAND:adaptive 1 --HYPERBAND:fixb 1 --EXPERIMENT:openml_tid $2 --EXPERIMENT:data_split_seed $d_s
 else
 export searcher="$1"
 sudo PYTHONPATH=$PYTHONPATH HPOlib-run -o ../../../optimizers/$searcher -s $s --HPOLIB:experiment_directory_prefix open_ml_"$2"_data_seed_"$d_s"_ --EXPERIMENT:openml_tid $2 --EXPERIMENT:data_split_seed $d_s

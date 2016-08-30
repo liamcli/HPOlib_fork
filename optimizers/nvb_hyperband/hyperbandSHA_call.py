@@ -167,9 +167,8 @@ def main():
 
                     if n> 0:
                         s = 0
-                        while (n)*R*(s+1.)*eta**(-s)>=B:
+                        while (n)*R*(s+1.)*eta**(-s)>B:
                             s+=1
-                        s-=1
 
                         print
                         print 's=%d, n=%d' %(s,n)

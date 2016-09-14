@@ -3,6 +3,6 @@ C [0.001, 100000.0] [1.0]l
 gamma [1.0e-05, 10.0] [0.1]l
 kernel {1,2,3} [1]
 coef0 [-1.0, 1.0] [0.0]
-degree [2, 5] [3]i
+degree [2, 4] [3]i
 degree | kernel in {2}
 coef0 | kernel in {2,3}

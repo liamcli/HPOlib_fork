@@ -5,6 +5,10 @@ import time
 import HPOlib.benchmark_util as benchmark_util
 import HPOlib.wrapping_util as wrapping_util
 from sklearn import svm,preprocessing
+import math
+import scipy
+import sklearn.metrics as metrics
+import gc
 
 def create_dataset(data_name,data_dir,combine=False):
     # This function loads the MNIST data, its copied from the Lasagne tutorial
@@ -90,7 +94,63 @@ def create_dataset(data_name,data_dir,combine=False):
 
     return data
 
+def block_kernel_solve(K, y, numiter=1, block_size=4000,num_classes=10, epochs=3, lambdav=0.1, verbose=True,val_K=None,val_y=None):
+        '''Solve (K + \lambdaI)x = y
+            in a block-wise fashion
+        '''
 
+        # compute some constants
+        num_samples = K.shape[0]
+        num_blocks = math.ceil(num_samples*1.0/block_size)
+        x = np.zeros((K.shape[0], num_classes))
+        y_hat = np.zeros((K.shape[0], num_classes))
+        onehot = lambda x: np.eye(num_classes)[x]
+        y_onehot = np.array(map(onehot, y))
+        loss = 0
+        print num_blocks
+        idxes = np.diag_indices(num_samples)
+        if num_blocks==1:
+            epochs=1
+
+        for e in range(epochs):
+                shuffled_coords = np.random.choice(num_samples, num_samples, replace=False)
+                for b in range(int(num_blocks)):
+                        # pick a block
+                        K[idxes] += lambdav
+                        block = shuffled_coords[b*block_size:min((b+1)*block_size, num_samples)]
+
+                        # pick a subset of the kernel matrix (note K can be mmap-ed)
+                        K_block = K[:, block]
+
+                        # This is a matrix vector multiply very efficient can be parallelized
+                        # (even if K is mmaped)
+
+                        # calculate
+                        residuals = y_onehot - y_hat
+
+
+                        # should be block size x block size
+                        KbTKb = K_block.T.dot(K_block)
+
+                        print("solving block {0}".format(b))
+                        x_block = scipy.linalg.solve(KbTKb, K_block.T.dot(residuals))
+
+                        # update model
+                        x[block] = x[block]+x_block
+                        K[idxes] -= lambdav
+                        y_hat = K.dot(x)
+
+                        y_pred = np.argmax(y_hat, axis=1)
+                        train_acc = metrics.accuracy_score(y, y_pred)
+                        if (verbose):
+                                print "Epoch: {0}, Block: {2}, Loss: {3}, Train Accuracy: {1}".format(e, train_acc, b, loss)
+                if val_K is not None:
+                    val_hat = val_K.dot(x)
+                    val_pred = np.argmax(val_hat, axis=1)
+                    val_acc = metrics.accuracy_score(val_y, val_pred)
+                    if (verbose):
+                            print "Epoch: {0}, Val Accuracy: {1}".format(e, val_acc)
+        return x
 # The optimization function that we want to optimize.
 # It gets a numpy array x with shape (1,D) where D are the number of parameters
 # and s which is the ratio of the training data that is used to
@@ -122,28 +182,50 @@ class svm_model:
         self.data['y_val']=self.orig_data['y_val']
         self.data['y_test']=self.orig_data['y_test']
 
-    def run_solver(self, arm):
+    def run_solver(self, arm,solver_type):
         kernel_map=dict(zip([1,2,3],['rbf','poly','sigmoid']))
         preprocess_map=dict(zip([1,2,3],['min_max','scaled','normalized']))
         self.compute_preprocessor(preprocess_map[arm['preprocessor']])
         print arm
         # Shuffle the data and split up the request subset of the training data
         # Train the SVM on the subset set
-        if kernel_map[arm['kernel']]=='rbf':
-            clf = svm.SVC(C=arm['C'], kernel=kernel_map[arm['kernel']], gamma=arm['gamma'])
-        elif kernel_map[arm['kernel']]=='poly':
-            clf = svm.SVC(C=arm['C'], kernel=kernel_map[arm['kernel']], gamma=arm['gamma'], coef0=arm['coef0'], degree=arm['degree'])
-        elif kernel_map[arm['kernel']]=='sigmoid':
-            clf = svm.SVC(C=arm['C'], kernel=kernel_map[arm['kernel']], gamma=arm['gamma'], coef0=arm['coef0'])
-        clf.fit(self.data['X_train'], self.data['y_train'])
+        if solver_type=='SVM':
+            if kernel_map[arm['kernel']]=='rbf':
+                clf = svm.SVC(C=arm['C'], kernel=kernel_map[arm['kernel']], gamma=arm['gamma'])
+            elif kernel_map[arm['kernel']]=='poly':
+                clf = svm.SVC(C=arm['C'], kernel=kernel_map[arm['kernel']], gamma=arm['gamma'], coef0=arm['coef0'], degree=arm['degree'])
+            elif kernel_map[arm['kernel']]=='sigmoid':
+                clf = svm.SVC(C=arm['C'], kernel=kernel_map[arm['kernel']], gamma=arm['gamma'], coef0=arm['coef0'])
+            clf.fit(self.data['X_train'], self.data['y_train'])
 
-        # Validate this hyperparameter configuration on the full validation data
-        #y_loss = 1 - clf.score(self.data['X_train'], self.data['y_train'])
-        y_loss=1
-        val_acc= clf.score(self.data['X_val'], self.data['y_val'])
-        test_acc = clf.score(self.data['X_test'], self.data['y_test'])
-
-
+            # Validate this hyperparameter configuration on the full validation data
+            #y_loss = 1 - clf.score(self.data['X_train'], self.data['y_train'])
+            y_loss=1
+            val_acc= clf.score(self.data['X_val'], self.data['y_val'])
+            test_acc = clf.score(self.data['X_test'], self.data['y_test'])
+        elif solver_type=='lsqr':
+            kernel_type=kernel_map[arm['kernel']]
+            if kernel_type=='rbf':
+                K=metrics.pairwise.pairwise_kernels(self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'])
+                val_kernel=metrics.pairwise.pairwise_kernels(self.data['X_val'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'])
+                test_kernel=metrics.pairwise.pairwise_kernels(self.data['X_test'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'])
+            elif kernel_type=='poly':
+                K=metrics.pairwise.pairwise_kernels(self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],degree=arm['degree'],coef0=arm['coef0'])
+                val_kernel=metrics.pairwise.pairwise_kernels(self.data['X_val'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],degree=arm['degree'],coef0=arm['coef0'])
+                test_kernel=metrics.pairwise.pairwise_kernels(self.data['X_test'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],degree=arm['degree'],coef0=arm['coef0'])
+            elif kernel_type=='sigmoid':
+                K=metrics.pairwise.pairwise_kernels(self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],coef0=arm['coef0'])
+                val_kernel=metrics.pairwise.pairwise_kernels(self.data['X_val'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],coef0=arm['coef0'])
+                test_kernel=metrics.pairwise.pairwise_kernels(self.data['X_test'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],coef0=arm['coef0'])
+            x=block_kernel_solve(K,self.data['y_train'],lambdav=1/arm['C']*len(self.data['y_train']))
+            y_loss=1
+            y_pred=np.argmax(val_kernel.dot(x),axis=1)
+            val_acc=metrics.accuracy_score(y_pred,self.data['y_val'])
+            y_pred=np.argmax(test_kernel.dot(x),axis=1)
+            test_acc=metrics.accuracy_score(y_pred,self.data['y_test'])
+            del K,val_kernel,test_kernel
+        del self.data
+        gc.collect()
         return y_loss,val_acc,test_acc
 
 def main(params, data_dir):
@@ -160,7 +242,7 @@ def main(params, data_dir):
                 except Exception:
                     pass
 
-    train_loss,val_acc, test_acc = model.run_solver(params)
+    train_loss,val_acc, test_acc = model.run_solver(params,solver_type='lsqr')
     return train_loss, val_acc, test_acc
 
 if __name__ == "__main__":

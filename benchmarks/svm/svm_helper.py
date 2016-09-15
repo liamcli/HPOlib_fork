@@ -133,7 +133,10 @@ def block_kernel_solve(K, y, numiter=1, block_size=4000,num_classes=10, epochs=3
                         KbTKb = K_block.T.dot(K_block)
 
                         print("solving block {0}".format(b))
-                        x_block = scipy.linalg.solve(KbTKb, K_block.T.dot(residuals))
+                        try:
+                            x_block = scipy.linalg.solve(KbTKb, K_block.T.dot(residuals))
+                        except:
+                            return None
 
                         # update model
                         x[block] = x[block]+x_block
@@ -218,6 +221,8 @@ class svm_model:
                 val_kernel=metrics.pairwise.pairwise_kernels(self.data['X_val'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],coef0=arm['coef0'])
                 test_kernel=metrics.pairwise.pairwise_kernels(self.data['X_test'],self.data['X_train'],metric=kernel_map[arm['kernel']], gamma=arm['gamma'],coef0=arm['coef0'])
             x=block_kernel_solve(K,self.data['y_train'],lambdav=1/arm['C']*len(self.data['y_train']))
+            if x is None:
+                return 1, 0 ,0
             y_loss=1
             y_pred=np.argmax(val_kernel.dot(x),axis=1)
             val_acc=metrics.accuracy_score(y_pred,self.data['y_val'])

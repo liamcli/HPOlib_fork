@@ -98,7 +98,7 @@ def build_solver(arm):
     s.iter_size = 1
 
     # 150 epochs max
-    s.max_iter = 40000/arm['batch_size']*450     # # of times to update the net (training iterations)
+    s.max_iter = 60000     # # of times to update the net (training iterations)
 
     # Solve using the stochastic gradient descent (SGD) algorithm.
     # Other choices include 'Adam' and 'RMSProp'.
@@ -209,7 +209,7 @@ def run_solver(unit, n_units, arm, val_batch, test_batch, do_stop=False):
     elif unit=='iter':
         if do_stop:
             early_stop = 0
-            while not early_stop and arm['n_iter']<30000:
+            while not early_stop and arm['n_iter']<60000:
                 s.step(400)
                 arm['n_iter']+=400
                 val_acc=0

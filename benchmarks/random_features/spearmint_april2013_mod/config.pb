@@ -4,8 +4,8 @@ variable {
   name: "LOG_C"
   size: 1
   type: FLOAT
-  min: -6.90775528
-  max:11.5129255 
+  min: -23.025851 
+  max: -4.60517 
 }
 variable {
   name: "LOG_gamma"

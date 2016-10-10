@@ -97,7 +97,7 @@ def build_solver(arm):
     s.iter_size = 1
 
     # 150 epochs max
-    s.max_iter = 40000/arm['batch_size']*150     # # of times to update the net (training iterations)
+    s.max_iter = 30000     # # of times to update the net (training iterations)
 
     # Solve using the stochastic gradient descent (SGD) algorithm.
     # Other choices include 'Adam' and 'RMSProp'.
@@ -130,13 +130,13 @@ def build_solver(arm):
 
     # Train on the GPU.  Using the CPU to train large networks is very slow.
     s.solver_mode = caffe.proto.caffe_pb2.SolverParameter.GPU
-
+    s.random_seed=arm['seed']+int(arm['dir'][arm['dir'].index('arm')+3:])
     # Write the solver to a temporary file and return its filename.
     filename=arm['dir']+"/network_solver.prototxt"
     with open(filename,'w') as f:
         f.write(str(s))
         return f.name
-def generate_arm(params,dir):
+def generate_arm(params,dir,seed):
     os.chdir(dir)
     if params is not None:
         for key in params:
@@ -180,6 +180,7 @@ def generate_arm(params,dir):
     #arm['init_std2']=10**random.uniform(-6,-1)
     #arm['init_std3']=10**random.uniform(-6,-1)
     #arm['init_std4']=10**random.uniform(-6,-1)
+    arm['seed']=seed 
     arm['train_net_file'] = build_net(arm,1)
     arm['val_net_file'] = build_net(arm,2)
     arm['test_net_file'] = build_net(arm,3)
@@ -317,8 +318,8 @@ def check_early_stopping(max_iter):
 #if __name__ == "__main__":
 #    test_config()
 
-def main(params, dir,do_stop):
-    arm = generate_arm(params,dir)
+def main(params, dir,do_stop,seed):
+    arm = generate_arm(params,dir,seed)
     print arm
     train_loss,val_acc, test_acc = run_solver('iter',2000,arm,100,100,do_stop)
     return train_loss, val_acc, test_acc
@@ -331,9 +332,10 @@ if __name__ == "__main__":
     config = wrapping_util.load_experiment_config_file()
     device= config.get("EXPERIMENT", "device")
     do_stop= config.get("EXPERIMENT", "do_stop")
+    seed=int(config.get("HPOLIB","seed"))
     caffe.set_device(int(device))
     caffe.set_mode_gpu()
-    train_loss, val_acc, test_acc = main(params, experiment_dir,int(do_stop))
+    train_loss, val_acc, test_acc = main(params, experiment_dir,int(do_stop),seed)
     val_error=1-val_acc
     test_error = 1-test_acc
     duration = time.time() - starttime

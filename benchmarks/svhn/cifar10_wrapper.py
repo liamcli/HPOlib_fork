@@ -123,7 +123,7 @@ def build_solver(arm):
 
     # Display the current training loss and accuracy every 1000 iterations.
     s.display = 1000
-
+    s.random_seed=seed+int(arm['dir'][arm['dir'].index('arm')+3:])
     # Snapshots are files used to store networks we've trained.  Here, we'll
     # snapshot every 10K iterations -- ten times during training.
     s.snapshot = 10000
@@ -137,7 +137,7 @@ def build_solver(arm):
     with open(filename,'w') as f:
         f.write(str(s))
         return f.name
-def generate_arm(params,dir):
+def generate_arm(params,dir,seed):
     os.chdir(dir)
     if params is not None:
         for key in params:
@@ -185,6 +185,7 @@ def generate_arm(params,dir):
     arm['val_net_file'] = build_net(arm,2)
     arm['test_net_file'] = build_net(arm,3)
     arm['solver_file'] = build_solver(arm)
+    arm['seed']=seed
     arm['results']=[]
     return arm
 
@@ -278,8 +279,8 @@ def check_early_stopping(max_iter):
                 prob_x_greater_type="posterior_prob_x_greater_than",
                 nthreads=4)
 
-def main(params, dir,do_stop):
-    arm = generate_arm(params,dir)
+def main(params, dir,do_stop,seed):
+    arm = generate_arm(params,dir,seed)
     print arm
     train_loss,val_acc, test_acc = run_solver('iter',60000,arm,60, 260,do_stop)
     return train_loss, val_acc, test_acc
@@ -292,9 +293,10 @@ if __name__ == "__main__":
     config = wrapping_util.load_experiment_config_file()
     device= config.get("EXPERIMENT", "device")
     do_stop= config.get("EXPERIMENT", "do_stop")
+    seed=int(config.get("HPOLIB","seed"))
     caffe.set_device(int(device))
     caffe.set_mode_gpu()
-    train_loss, val_acc, test_acc = main(params, experiment_dir,int(do_stop))
+    train_loss, val_acc, test_acc = main(params, experiment_dir,int(do_stop),seed)
     val_error=1-val_acc
     test_error = 1-test_acc
     duration = time.time() - starttime

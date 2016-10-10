@@ -55,18 +55,18 @@ def build_net(arm, split=0):
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
     n.conv1 = conv_layer(n.data, 5, 32, pad=2, stride=1, param=[dict(lr_mult=1,decay_mult=arm['weight_cost1']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std1']),
             bias_filler=dict(type='constant'))
-    n.pool1 = pooling_layer(n.conv1, 'max', 3, stride=2)
+    n.pool1 = pooling_layer(n.conv1, arm['pool1'], 3, stride=2)
     n.relu1 = caffe.layers.ReLU(n.pool1,in_place=True)
     n.norm1 = caffe.layers.LRN(n.pool1, local_size=3, alpha=arm['scale'], beta=arm['power'], norm_region=1)
     n.conv2 = conv_layer(n.norm1, 5, 32, pad=2, stride=1, param=[dict(lr_mult=1,decay_mult=arm['weight_cost2']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std2']),
             bias_filler=dict(type='constant'))
     n.relu2 = caffe.layers.ReLU(n.conv2, in_place=True)
-    n.pool2 = pooling_layer(n.conv2, 'ave', 3, stride=2)
+    n.pool2 = pooling_layer(n.conv2, arm['pool2'], 3, stride=2)
     n.norm2 = caffe.layers.LRN(n.pool2, local_size=3, alpha=arm['scale'], beta=arm['power'], norm_region=1)
     n.conv3 = conv_layer(n.norm2, 5, 64, pad=2, stride=1, param=[dict(lr_mult=1,decay_mult=arm['weight_cost3']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std3']),
             bias_filler=dict(type='constant'))
     n.relu3 = caffe.layers.ReLU(n.conv3, in_place=True)
-    n.pool3 = pooling_layer(n.conv3, 'ave', 3, stride=2)
+    n.pool3 = pooling_layer(n.conv3, arm['pool3'], 3, stride=2)
     n.ip1 = caffe.layers.InnerProduct(n.pool3, num_output=10, param=[dict(lr_mult=1,decay_mult=arm['weight_cost4']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std4']),
             bias_filler=dict(type='constant'))
     n.loss = caffe.layers.SoftmaxWithLoss(n.ip1, n.label)
@@ -98,7 +98,7 @@ def build_solver(arm):
     s.iter_size = 1
 
     # 150 epochs max
-    s.max_iter = 40000/arm['batch_size']*450     # # of times to update the net (training iterations)
+    s.max_iter = 30000     # # of times to update the net (training iterations)
 
     # Solve using the stochastic gradient descent (SGD) algorithm.
     # Other choices include 'Adam' and 'RMSProp'.
@@ -128,6 +128,7 @@ def build_solver(arm):
     # snapshot every 10K iterations -- ten times during training.
     s.snapshot = 10000
     s.snapshot_prefix = arm['dir']+"/cifar10_data"
+    s.random_seed=arm['seed']+int(arm['dir'][arm['dir'].index('arm')+3:])
 
     # Train on the GPU.  Using the CPU to train large networks is very slow.
     s.solver_mode = caffe.proto.caffe_pb2.SolverParameter.GPU
@@ -137,7 +138,7 @@ def build_solver(arm):
     with open(filename,'w') as f:
         f.write(str(s))
         return f.name
-def generate_arm(params,dir):
+def generate_arm(params,dir,seed):
     os.chdir(dir)
     if params is not None:
         for key in params:
@@ -177,10 +178,14 @@ def generate_arm(params,dir):
     arm['init_std2']=0.01
     arm['init_std3']=0.01
     arm['init_std4']=0.01
+    arm['pool1']='max' if params['pool1']==1 else 'ave'
+    arm['pool2']='max' if params['pool2']==1 else 'ave'
+    arm['pool3']='max' if params['pool3']==1 else 'ave'
     #arm['init_std1']=10**random.uniform(-6,-1)
     #arm['init_std2']=10**random.uniform(-6,-1)
     #arm['init_std3']=10**random.uniform(-6,-1)
     #arm['init_std4']=10**random.uniform(-6,-1)
+    arm['seed']=seed
     arm['train_net_file'] = build_net(arm,1)
     arm['val_net_file'] = build_net(arm,2)
     arm['test_net_file'] = build_net(arm,3)
@@ -279,8 +284,8 @@ def check_early_stopping(max_iter):
                 prob_x_greater_type="posterior_prob_x_greater_than",
                 nthreads=4)
 
-def main(params, dir,do_stop):
-    arm = generate_arm(params,dir)
+def main(params, dir,do_stop,seed):
+    arm = generate_arm(params,dir,seed)
     print arm
     train_loss,val_acc, test_acc = run_solver('iter',30000,arm,20,500,do_stop)
     return train_loss, val_acc, test_acc
@@ -293,9 +298,10 @@ if __name__ == "__main__":
     config = wrapping_util.load_experiment_config_file()
     device= config.get("EXPERIMENT", "device")
     do_stop= config.get("EXPERIMENT", "do_stop")
+    seed=int(config.get("HPOLIB","seed"))
     caffe.set_device(int(device))
     caffe.set_mode_gpu()
-    train_loss, val_acc, test_acc = main(params, experiment_dir,int(do_stop))
+    train_loss, val_acc, test_acc = main(params, experiment_dir,int(do_stop),seed)
     val_error=1-val_acc
     test_error = 1-test_acc
     duration = time.time() - starttime

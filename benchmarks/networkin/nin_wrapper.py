@@ -142,9 +142,12 @@ def build_solver(arm,problem):
     # Set `lr_policy` to define how the learning rate changes during training.
     # Here, we 'step' the learning rate by multiplying it by a factor `gamma`
     # every `stepsize` iterations.
-    s.lr_policy = 'step'
+    s.lr_policy = 'multistep'
     s.gamma = 0.1
-    s.stepsize = int(60000/arm['lr_step'])
+    s.stepvalue.append(40000)
+    size=int((s.max_iter-40000)/arm['lr_step'])
+    for j in range(arm['lr_step']):
+        s.stepvalue.append(40000+(j+1)*size)
 
     # Set other SGD hyperparameters. Setting a non-zero `momentum` takes a
     # weighted average of the current gradient and previous gradients to make

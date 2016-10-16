@@ -55,18 +55,18 @@ def build_net(arm, split=0):
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
     n.conv1 = conv_layer(n.data, 5, 32, pad=2, stride=1, param=[dict(lr_mult=1,decay_mult=arm['weight_cost1']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std1']),
             bias_filler=dict(type='constant'))
-    n.pool1 = pooling_layer(n.conv1, arm['pool1'], 3, stride=2)
+    n.pool1 = pooling_layer(n.conv1, 'max', 3, stride=2)
     n.relu1 = caffe.layers.ReLU(n.pool1,in_place=True)
     n.norm1 = caffe.layers.LRN(n.pool1, local_size=3, alpha=arm['scale'], beta=arm['power'], norm_region=1)
     n.conv2 = conv_layer(n.norm1, 5, 32, pad=2, stride=1, param=[dict(lr_mult=1,decay_mult=arm['weight_cost2']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std2']),
             bias_filler=dict(type='constant'))
     n.relu2 = caffe.layers.ReLU(n.conv2, in_place=True)
-    n.pool2 = pooling_layer(n.conv2, arm['pool2'], 3, stride=2)
+    n.pool2 = pooling_layer(n.conv2, 'ave', 3, stride=2)
     n.norm2 = caffe.layers.LRN(n.pool2, local_size=3, alpha=arm['scale'], beta=arm['power'], norm_region=1)
     n.conv3 = conv_layer(n.norm2, 5, 64, pad=2, stride=1, param=[dict(lr_mult=1,decay_mult=arm['weight_cost3']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std3']),
             bias_filler=dict(type='constant'))
     n.relu3 = caffe.layers.ReLU(n.conv3, in_place=True)
-    n.pool3 = pooling_layer(n.conv3, arm['pool3'], 3, stride=2)
+    n.pool3 = pooling_layer(n.conv3, 'ave', 3, stride=2)
     n.ip1 = caffe.layers.InnerProduct(n.pool3, num_output=10, param=[dict(lr_mult=1,decay_mult=arm['weight_cost4']/weight_decay),bias_param],weight_filler=dict(type='gaussian', std=arm['init_std4']),
             bias_filler=dict(type='constant'))
     n.loss = caffe.layers.SoftmaxWithLoss(n.ip1, n.label)
@@ -178,9 +178,6 @@ def generate_arm(params,dir,seed):
     arm['init_std2']=0.01
     arm['init_std3']=0.01
     arm['init_std4']=0.01
-    arm['pool1']='max' if params['pool1']==1 else 'ave'
-    arm['pool2']='max' if params['pool2']==1 else 'ave'
-    arm['pool3']='max' if params['pool3']==1 else 'ave'
     #arm['init_std1']=10**random.uniform(-6,-1)
     #arm['init_std2']=10**random.uniform(-6,-1)
     #arm['init_std3']=10**random.uniform(-6,-1)

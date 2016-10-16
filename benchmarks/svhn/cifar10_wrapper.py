@@ -227,7 +227,7 @@ def run_solver(unit, n_units, arm, val_batch, test_batch, do_stop=False):
                 else:
                     with open("learning_curve.txt", "w") as myfile:
                         myfile.write(str(val_acc))
-                if arm['n_iter']%8000==0:
+                if arm['n_iter']%16000==0:
                     st=time.time()
                     early_stop=check_early_stopping(75)
                     time_early+=time.time()-st

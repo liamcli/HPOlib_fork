@@ -69,7 +69,7 @@ def main():
             y = np.reshape(y, (-1, 1))
         n_obs = y.shape[0]
 
-        min_train_size = max(min(int(2./27.*n_obs),1000),20)
+        min_train_size = min(int(1./12.*n_obs),2000)
         max_train_size=int(2./3.*n_obs)
         k = 0
         seed_and_arms = args.seed

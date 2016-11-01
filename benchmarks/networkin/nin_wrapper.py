@@ -144,10 +144,10 @@ def build_solver(arm,problem):
     # every `stepsize` iterations.
     s.lr_policy = 'multistep'
     s.gamma = 0.1
+    s.stepsize=s.max_iter/arm['lr_step']
     s.stepvalue.append(40000)
-    size=int((s.max_iter-40000)/arm['lr_step'])
-    for j in range(arm['lr_step']):
-        s.stepvalue.append(40000+(j+1)*size)
+    s.stepvalue.append(50000)
+    s.stepvalue.append(60000)
 
     # Set other SGD hyperparameters. Setting a non-zero `momentum` takes a
     # weighted average of the current gradient and previous gradients to make

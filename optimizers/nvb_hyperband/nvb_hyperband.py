@@ -1,4 +1,3 @@
-import cPickle
 import logging
 import os
 import sys
@@ -7,7 +6,7 @@ import HPOlib.wrapping_util as wrappingUtil
 __authors__ = ["Lisha Li "]
 
 
-logger = logging.getLogger("HPOlib.optimizers.nvb_hyperband")
+logger = logging.getLogger("HPOlib.optimizers.hyperband")
 
 
 def check_dependencies():
@@ -45,7 +44,7 @@ def check_dependencies():
 
 
 
-def build_hyperband_call(config, options, optimizer_dir,adaptive):
+def build_hyperband_call(config, options, optimizer_dir,adaptive=True):
     if adaptive:
         call_script='hyperbandSHA_call.py'
     else:

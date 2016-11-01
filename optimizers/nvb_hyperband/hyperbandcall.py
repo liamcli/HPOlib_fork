@@ -1,69 +1,26 @@
 #!/usr/bin/env python
 
-##
-# wrapping: A program making it easy to use hyperparameter
-# optimization software.
-# Copyright (C) 2013 Katharina Eggensperger and Matthias Feurer
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 from argparse import ArgumentParser
 
-import cPickle
 from importlib import import_module
 import logging
 import traceback
 import os
 import sys
 from HPOlib.benchmark_util import get_openml_dataset
-import optimizers.tpe.hyperopt_august2013_mod_src.hyperopt as hyperopt
 import HPOlib.cv as cv
 import numpy as np
 from run_nvb import run_nvb
 
-logger = logging.getLogger("HPOlib.optimizers.tpe.tpecall")
+logger = logging.getLogger("HPOlib.optimizers.nvb.nvbcall")
 
-__authors__ = ["Katharina Eggensperger", "Matthias Feurer"]
-__contact__ = "automl.org"
-
-"""
-def pyll_replace_list_with_dict(search_space, indent = 0):
-    ""
-    Recursively traverses a pyll search space and replaces pos_args nodes with
-    dict nodes.
-    ""
-
-    # Convert to apply first. This makes sure every node of the search space is
-    # an apply or literal node which makes it easier to traverse the tree
-    if not isinstance(search_space, hyperopt.pyll.Apply):
-        search_space = hyperopt.pyll.as_apply(search_space)
-
-    if search_space.name == "pos_args":
-        print " " * indent + search_space.name, search_space.__dict__
-        param_dict = {}
-        for pos_arg in search_space.pos_args:
-            print " " * indent + pos_arg.name
-            #param_dict["key"] = pos_arg
-    for param in search_space.inputs():
-        pyll_replace_list_with_dict(param, indent=indent+2)
-
-    return search_space
-"""
 
 
 def main():
-    prog = "python statistics.py WhatIsThis <manyPickles> WhatIsThis <manyPickles> [WhatIsThis <manyPickles>]"
-    description = "Return some statistical information"
+    # THIS METHOD DOES NOT SUPPORT RESTORE
+    prog = "nvb"
+    description = "nvb"
 
     parser = ArgumentParser(description=description, prog=prog)
 
@@ -72,10 +29,7 @@ def main():
     parser.add_argument("-m", "--maxEvals",
                         dest="maxEvals", help="How many evaluations?")
     parser.add_argument("-s", "--seed", default="1",
-                        dest="seed", type=int, help="Seed for the TPE algorithm")
-    parser.add_argument("-r", "--restore", action="store_true",
-                        dest="restore", help="When this flag is set state.pkl is restored in " +
-                             "the current working directory")
+                        dest="seed", type=int, help="Seed for nvb")
     parser.add_argument("-fixB",type=int, help="Fix budget each round")
     parser.add_argument("--random", default=False, action="store_true",
                         dest="random", help="Use a random search")
@@ -105,16 +59,8 @@ def main():
 
     # Now run TPE, emulate fmin.fmin()
     state_filename = "state.pkl"
-    if args.restore:
-        # We do not need to care about the state of the trials object since it
-        # is only serialized in a synchronized state, there will never be a save
-        # with a running experiment
-        fh = open(state_filename)
-        tmp_dict = cPickle.load(fh)
-        domain = tmp_dict['domain']
-        trials = tmp_dict['trials']
-        print trials.__dict__
-    else:
+
+    while True:
         X,y = get_openml_dataset(args.tid, args.datadir)
         y = np.atleast_1d(y)
         if y.ndim == 1:
@@ -122,14 +68,8 @@ def main():
         # [:, np.newaxis] that does not.
             y = np.reshape(y, (-1, 1))
         n_obs = y.shape[0]
-        #should change to match SHA
-        min_train_size = min(int(1./12.*n_obs),2000)
-        #what to do if not all classes appear in training data
-        #y_train=y[0:min_train_size]
-        #while len(np.unique(y_train))<len(np.unique(y)):
-            #min_train_size = min_train_size + int(0.1 * n_obs)
-            #y_train=y[0:min_train_size]
 
+        min_train_size = max(min(int(2./27.*n_obs),1000),20)
         max_train_size=int(2./3.*n_obs)
         k = 0
         seed_and_arms = args.seed

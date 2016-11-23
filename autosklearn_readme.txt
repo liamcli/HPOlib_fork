@@ -1,5 +1,7 @@
 A setup file called autosklearn_setup.sh is provided for downloading and installing the packages needed to recreate these experiments.  
 
+You will need to create an OpenML account and get an access key to use their API to download data from their website.  The autosklearn benchmark provided uses a method from PyMetaLearn to make the data requests.  After you receive the API key, insert it into line 215 of pyMetaLearn/openml/manage_openml_data.py.  REMEMBER: reinstall pyMetalearn after you do this.  Also, open HPOlib/benchmarks/auto-sklearn/nocv and edit the config.cfg file by changing the field openml_data_dir under the EXPERIMENT section to the desired folder to store the openml data files.  Note that you may want to predownload all the data and save onto the image before running all the experiments so that there won't be multiple hits for the same dataset to the API.
+
 The tids of the 117 OpenML datasets included in the experiments are:
 3584 3586 3 3588 3589 6 3593 3594 12 14 16 3601 18 3603 21 3606 3607 24 2073 2074 28 2077 30 31 32 3617 3618 36 3627 45 3638 58 3662 3664 3668 3600 3671 3672 3678 3681 3684 3686 3687 3688 3698 3702 3708 3710 3711 3712 3714 22 23 2072 3730 3609 26 3745 2076 3760 3764 3766 3767 3773 3775 3776 3777 3780 3786 3793 3797 3816 3821 3822 3825 3829 3834 3839 3840 3841 3842 3843 3854 3856 43 3858 3865 3881 3882 3883 3884 3889 3893 3894 3902 3903 3904 3907 3917 3918 3919 3950 3953 3954 3962 3964 3968 3972 3973 3976 3735 3980 3481 3995 4000 3574 3581
 
@@ -9,7 +11,6 @@ The tids of the subset of 43 datasets are:
 The tids of the subset of 21 datasets are:
 3594 3601 3603 24 2074 28 30 32 3618 3627 3668 3672 3712 26 3786 3842 3843 3865 3884 3904 3919
 
-You will need to create an OpenML account and get an access key to use their API to download data from their website.  The autosklearn benchmark provided uses a method from PyMetaLearn to make the data requests.
 
 The seeds used for 40 trials of random search are:
 1 5001 10001 15001 20001 25001 30001 35001 40001 45001 50001 55001 60001 65001 70001 75001 80001 85001 90001 95001 100001 105001 110001 115001 120001 125001 130001 135001 140001 145001 150001 155001 160001 165001 170001 175001 180001 185001 190001 195001

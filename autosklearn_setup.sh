@@ -1,22 +1,23 @@
-apt-get --yes update
-apt-get --yes upgrade
-apt-get --yes install make
-apt-get --yes install wget
-apt-get --yes install git
-apt-get --yes install screen
-apt-get --yes install python-setuptools
-apt-get --yes install libpng-dev libjpeg8-dev libfreetype6-dev pkg-config
-apt-get --yes install default-jre
-easy_install pip
-apt-get --yes install libblas-dev liblapack-dev libatlas-base-dev gfortran
+sudo apt-get --yes update
+sudo apt-get --yes upgrade
+sudo apt-get --yes install make
+sudo apt-get --yes install wget
+sudo apt-get --yes install git
+sudo apt-get --yes install screen
+sudo apt-get --yes install python-setuptools
+sudo apt-get --yes install libpng-dev libjpeg8-dev libfreetype6-dev pkg-config
+sudo apt-get --yes install default-jre
+sudo apt-get --yes install libblas-dev liblapack-dev libatlas-base-dev gfortran
 #Install necessary python packages
-easy_install -U distribute 
-pip install --upgrade setuptools
+sudo apt-get --yes install python-pip
+sudo pip install virtualenv
+virtualenv venv_autosklearn
+source venv_autosklearn/bin/activate
 pip install numpy
 pip install scipy
 pip install xmltodict
-apt-get --yes install build-essential
-apt-get --yes install python-dev
+sudo apt-get --yes install build-essential
+sudo apt-get --yes install python-dev
 pip install scikit-learn==0.16.1
 
 git clone https://github.com/jaberg/skdata.git
@@ -36,5 +37,6 @@ cd $HOME
 
 git clone -b autosklearn https://github.com/mula0513/hyperband2.git
 cd hyperband2 && python setup.py install
-mv hyperband2 HPOlib
 cd $HOME
+mv hyperband2 HPOlib
+

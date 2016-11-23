@@ -1,3 +1,6 @@
+Please see [autosklearn_readme.txt](autosklearn_readme.txt) for instructions on how to replicate experiments on 117 datasets decribed in
+"Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization", Lisha Li, Kevin Jamieson, Giulia DeSalvo, Afshin Rostamizadeh, Ameet Talwalkar.
+
 HPOlib: A hyperparameter optimization library.
 ===============================================================
 

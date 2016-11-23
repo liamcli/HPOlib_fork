@@ -163,6 +163,7 @@ def build_solver(arm,problem):
     # snapshot every 10K iterations -- ten times during training.
     s.snapshot = 10000
     s.snapshot_prefix = arm['dir']+"/"+problem+"cifar10_data"
+    s.random_seed=arm['seed']+int(arm['dir'][arm['dir'].index('arm')+3:])
 
     # Train on the GPU.  Using the CPU to train large networks is very slow.
     s.solver_mode = caffe.proto.caffe_pb2.SolverParameter.GPU

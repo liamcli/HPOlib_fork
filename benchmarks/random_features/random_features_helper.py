@@ -5,8 +5,6 @@ from sklearn import linear_model,preprocessing,kernel_approximation
 import time
 import HPOlib.benchmark_util as benchmark_util
 import HPOlib.wrapping_util as wrapping_util
-import math
-import sklearn.metrics as metrics
 import gc
 
 def create_dataset(data_name,data_dir,combine=False):
@@ -94,10 +92,7 @@ def create_dataset(data_name,data_dir,combine=False):
     return data
 
 
-# The optimization function that we want to optimize.
-# It gets a numpy array x with shape (1,D) where D are the number of parameters
-# and s which is the ratio of the training data that is used to
-# evaluate this configuration
+
 class random_features_model:
     def __init__(self,name, data_dir,combine=False):
         self.data_dir=data_dir
@@ -128,6 +123,8 @@ class random_features_model:
         self.data['y_test']=self.orig_data['y_test']
     def run_solver(self, n_units, arm):
         start_time=time.time()
+        # Only using RBF kernel since that is the only supported kernel in Scikit that uses the
+        # algorithm described in Rahimi, A. et al 2008
         #kernel_map=dict(zip([1,2,3],['rbf','poly','sigmoid']))
         preprocess_map=dict(zip([1,2,3,4],['none','min_max','scaled','normalized']))
         self.compute_preprocessor(preprocess_map[arm['preprocessor']])

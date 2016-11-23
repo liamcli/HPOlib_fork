@@ -16,16 +16,6 @@ bias_param   = dict(lr_mult=2, decay_mult=0)
 learned_param = [weight_param, bias_param]
 data_dir="/home/lisha/school/caffe/examples/cifar10"
 
-#class Logger(object):
-#    def __init__(self,dir):
-#        self.terminal = sys.stdout
-#        self.log = open(dir+"/hyperband_run.log", "a")
-
-#    def write(self, message):
-#        self.terminal.write(message)
-#        self.log.write(message)
-#        self.log.flush()
-
 
 def build_net(arm, split=0):
     def conv_layer(bottom, ks=5, nout=32, stride=1, pad=2, param=learned_param,
@@ -45,7 +35,6 @@ def build_net(arm, split=0):
     if split==1:
         n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/cifar10_eventrain_lmdb",
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
-        #transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),
     elif split==2:
         n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/cifar10_evenval_lmdb",
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
@@ -96,8 +85,8 @@ def build_solver(arm):
     # affecting memory utilization.
     s.iter_size = 1
 
-    # 150 epochs max
-    s.max_iter = 30000     # # of times to update the net (training iterations)
+    # Training set size is 40000 which is 400 batches hence giving a max epoch of 75
+    s.max_iter = 30000     # of times to update the net (training iterations)
 
     # Solve using the stochastic gradient descent (SGD) algorithm.
     # Other choices include 'Adam' and 'RMSProp'.
@@ -166,21 +155,15 @@ def generate_arm(params,dir,seed):
     arm['weight_cost2']=params['weight_cost2']
     arm['weight_cost3']=params['weight_cost3']
     arm['weight_cost4']=params['weight_cost4']
-    #arm['size']=3
     arm['scale']=params['scale']
     arm['power']=params['power']
-    #int(10**random.uniform(2,4)/100)*100
     arm['batch_size']=100
     arm['lr_step']=params['lr_step']
     arm['init_std1']=0.0001
     arm['init_std2']=0.01
     arm['init_std3']=0.01
     arm['init_std4']=0.01
-    #arm['init_std1']=10**random.uniform(-6,-1)
-    #arm['init_std2']=10**random.uniform(-6,-1)
-    #arm['init_std3']=10**random.uniform(-6,-1)
-    #arm['init_std4']=10**random.uniform(-6,-1)
-    arm['seed']=seed 
+    arm['seed']=seed
     arm['train_net_file'] = build_net(arm,1)
     arm['val_net_file'] = build_net(arm,2)
     arm['test_net_file'] = build_net(arm,3)
@@ -190,15 +173,8 @@ def generate_arm(params,dir,seed):
 
 
 def run_solver(unit, n_units, arm, val_batch, test_batch, do_stop=False):
-    #print(arm['dir'])
     s = caffe.get_solver(arm['solver_file'])
 
-    #if arm['n_iter']>0:
-    #    prefix=arm['dir']+"/cifar10_data_iter_"
-    #    s.restore(prefix+str(arm['n_iter'])+".solverstate")
-    #    s.net.copy_from(prefix+str(arm['n_iter'])+".caffemodel")
-    #    s.test_nets[0].share_with(s.net)
-    #    s.test_nets[1].share_with(s.net)
     start=time.time()
     time_val=0
     time_early=0
@@ -206,7 +182,7 @@ def run_solver(unit, n_units, arm, val_batch, test_batch, do_stop=False):
         while time.time()-start<n_units:
             s.step(1)
             arm['n_iter']+=1
-            #print time.localtime(time.time())
+
     elif unit=='iter':
         if do_stop:
             early_stop = 0
@@ -278,45 +254,6 @@ def check_early_stopping(max_iter):
     return termcrit.main(mode="conservative",
                 prob_x_greater_type="posterior_prob_x_greater_than",
                 nthreads=4)
-# def create_arm(dict,arm_dir):
-#     arm={}
-#     for k in dict.keys():
-#         arm[k[1:]]=float(dict[k])
-#     arm['lr_step']=int(arm['lr_step'])
-#     arm['train_net_file'] = arm_dir+'/network_train.prototxt'
-#     arm['val_net_file'] = arm_dir+'/network_val.prototxt'
-#     arm['test_net_file'] = arm_dir+'/network_test.prototxt'
-#     arm['solver_file'] = arm_dir+'/network_solver.prototxt'
-#     arm['batch_size']=100
-#     arm['n_iter']=0
-#     arm['dir']=arm_dir
-#     arm['init_std1']= 0.0001
-#     arm['init_std2']=0.01
-#     arm['init_std3']=0.01
-#     arm['init_std4']=0.01
-#     return arm
-# def test_config():
-#     caffe.set_device(0)
-#     caffe.set_mode_gpu()
-#
-#     rootdir='/home/lisha/school/Projects/hyperband_nnet/hyperband2/cifar10/'
-#     work_dir=rootdir+'caffe_cnn/early_stop/smac_2_06_01-dev_3800_2016-5-17--18-21-17-927189'
-#     os.chdir(work_dir)
-#     data=pickle.load(open('smac_2_06_01-dev.pkl','r'))
-#     val_errors=[t['result'] for t in data['trials']]
-#     best_arm=numpy.nanargmin(val_errors)
-#     arm_dir=os.getcwd()+'/arm'+str(best_arm+1)
-#     params=data['trials'][best_arm]['params']
-#     p_dict={}
-#     for k in params.keys():
-#         p_dict[k[1:]]=params[k]
-#
-#     arm = generate_arm(p_dict,work_dir)
-#     train_loss,val_acc, test_acc = run_solver('iter',30000,arm,True)
-#     print train_loss, val_acc, test_acc
-
-#if __name__ == "__main__":
-#    test_config()
 
 def main(params, dir,do_stop,seed):
     arm = generate_arm(params,dir,seed)

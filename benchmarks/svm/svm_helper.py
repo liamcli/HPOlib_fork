@@ -154,10 +154,9 @@ def block_kernel_solve(K, y, numiter=1, block_size=4000,num_classes=10, epochs=3
                     if (verbose):
                             print "Epoch: {0}, Val Accuracy: {1}".format(e, val_acc)
         return x
-# The optimization function that we want to optimize.
-# It gets a numpy array x with shape (1,D) where D are the number of parameters
-# and s which is the ratio of the training data that is used to
-# evaluate this configuration
+
+
+
 class svm_model:
     def __init__(self,name, data_dir, combine=False):
         self.data_dir=data_dir

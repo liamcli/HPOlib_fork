@@ -17,15 +17,6 @@ bias_param   = dict(lr_mult=2, decay_mult=0)
 learned_param = [weight_param, bias_param]
 data_dir="/home/lisha/school/Projects/hyperband_nnet/hyperband2/mrbi"
 
-#class Logger(object):
-#    def __init__(self,dir):
-#        self.terminal = sys.stdout
-#        self.log = open(dir+"/hyperband_run.log", "a")
-
-#    def write(self, message):
-#        self.terminal.write(message)
-#        self.log.write(message)
-#        self.log.flush()
 
 
 def build_net(arm, split=0):
@@ -46,7 +37,6 @@ def build_net(arm, split=0):
     if split==1:
         n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/mrbi_train",
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
-        #transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),
     elif split==2:
         n.data, n.label = caffe.layers.Data(batch_size=arm['batch_size'], backend=caffe.params.Data.LMDB, source=data_dir+"/mrbi_val",
                              transform_param=dict(mean_file=data_dir+"/mean.binaryproto"),ntop=2)
@@ -97,8 +87,8 @@ def build_solver(arm):
     # affecting memory utilization.
     s.iter_size = 1
 
-    # 150 epochs max
-    s.max_iter = 30000     # # of times to update the net (training iterations)
+    # Set max_iter R
+    s.max_iter = 30000     # of times to update the net (training iterations)
 
     # Solve using the stochastic gradient descent (SGD) algorithm.
     # Other choices include 'Adam' and 'RMSProp'.
@@ -127,7 +117,7 @@ def build_solver(arm):
     # Snapshots are files used to store networks we've trained.  Here, we'll
     # snapshot every 10K iterations -- ten times during training.
     s.snapshot = 10000
-    s.snapshot_prefix = arm['dir']+"/cifar10_data"
+    s.snapshot_prefix = arm['dir']+"/mrbi_data"
     s.random_seed=arm['seed']+int(arm['dir'][arm['dir'].index('arm')+3:])
 
     # Train on the GPU.  Using the CPU to train large networks is very slow.
@@ -168,20 +158,14 @@ def generate_arm(params,dir,seed):
     arm['weight_cost2']=params['weight_cost2']
     arm['weight_cost3']=params['weight_cost3']
     arm['weight_cost4']=params['weight_cost4']
-    #arm['size']=3
     arm['scale']=params['scale']
     arm['power']=params['power']
-    #int(10**random.uniform(2,4)/100)*100
     arm['batch_size']=100
     arm['lr_step']=params['lr_step']
     arm['init_std1']=0.0001
     arm['init_std2']=0.01
     arm['init_std3']=0.01
     arm['init_std4']=0.01
-    #arm['init_std1']=10**random.uniform(-6,-1)
-    #arm['init_std2']=10**random.uniform(-6,-1)
-    #arm['init_std3']=10**random.uniform(-6,-1)
-    #arm['init_std4']=10**random.uniform(-6,-1)
     arm['seed']=seed
     arm['train_net_file'] = build_net(arm,1)
     arm['val_net_file'] = build_net(arm,2)
@@ -192,15 +176,9 @@ def generate_arm(params,dir,seed):
 
 
 def run_solver(unit, n_units, arm, val_batch, test_batch, do_stop=False):
-    #print(arm['dir'])
+
     s = caffe.get_solver(arm['solver_file'])
 
-    #if arm['n_iter']>0:
-    #    prefix=arm['dir']+"/cifar10_data_iter_"
-    #    s.restore(prefix+str(arm['n_iter'])+".solverstate")
-    #    s.net.copy_from(prefix+str(arm['n_iter'])+".caffemodel")
-    #    s.test_nets[0].share_with(s.net)
-    #    s.test_nets[1].share_with(s.net)
     start=time.time()
     time_val=0
     time_early=0
@@ -208,7 +186,7 @@ def run_solver(unit, n_units, arm, val_batch, test_batch, do_stop=False):
         while time.time()-start<n_units:
             s.step(1)
             arm['n_iter']+=1
-            #print time.localtime(time.time())
+
     elif unit=='iter':
         if do_stop:
             early_stop = 0

@@ -35,8 +35,8 @@ cd pyMetaLearn
 python setup.py install 
 cd $HOME
 
-git clone -b autosklearn https://github.com/mula0513/hyperband2.git
-cd hyperband2 && python setup.py install
+git clone -b autosklearn https://github.com/lishal/HPOlib_fork.git
+cd HPOlib_fork && python setup.py install
 cd $HOME
-mv hyperband2 HPOlib
+mv HPOlib_fork HPOlib
 

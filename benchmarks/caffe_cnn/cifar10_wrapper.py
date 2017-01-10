@@ -258,7 +258,7 @@ def check_early_stopping(max_iter):
 def main(params, dir,do_stop,seed):
     arm = generate_arm(params,dir,seed)
     print arm
-    train_loss,val_acc, test_acc = run_solver('iter',2000,arm,100,100,do_stop)
+    train_loss,val_acc, test_acc = run_solver('iter',30000,arm,100,100,do_stop)
     return train_loss, val_acc, test_acc
 
 if __name__ == "__main__":

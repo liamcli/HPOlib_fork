@@ -119,7 +119,7 @@ def build_solver(arm):
 
     # Train on the GPU.  Using the CPU to train large networks is very slow.
     s.solver_mode = caffe.proto.caffe_pb2.SolverParameter.GPU
-    s.random_seed=arm['seed']+int(arm['dir'][arm['dir'].index('arm')+3:])
+    s.random_seed=arm['seed']+int(arm['dir'][arm['dir'].index('/arm')+4:])
     # Write the solver to a temporary file and return its filename.
     filename=arm['dir']+"/network_solver.prototxt"
     with open(filename,'w') as f:
